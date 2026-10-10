@@ -60,7 +60,7 @@ const schema = [{
         <div class="svc__row" role="row">
           <span role="cell" class="svc__name"><strong>{s.name}</strong><span class="svc__sum">{s.summary}</span></span>
           <span class="svc__meta"><span role="cell" class="svc__who">{s.forWho}</span><span role="cell" class="svc__rut">{s.rut ? 'RUT-avdrag kan gälla' : 'Gäller inte företag'}</span></span>
-          <span role="cell" class="svc__go"><a href={`/${s.slug}`} aria-label={`Läs mer om ${s.name.toLowerCase()} i ${site.mainOrt}`}>Läs mer <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a></span>
+          <span role="cell" class="svc__go"><a href={`/${s.slug}`}>Läs mer<span class="visually-hidden"> om {s.name.toLowerCase()} i {site.mainOrt}</span> <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a></span>
         </div>
       ))}
     </div>
