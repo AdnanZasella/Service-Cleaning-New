@@ -1,0 +1,136 @@
+---
+import Base from './Base.astro';
+import Hero from '../components/Hero.astro';
+import Checklist from '../components/Checklist.astro';
+import Steps from '../components/Steps.astro';
+import OfferForm from '../components/OfferForm.astro';
+import { site, services } from '../config/site';
+
+interface Props {
+  slug: string;
+  name: string;            // "Flyttstäd"
+  title: string;           // <title>
+  description: string;     // meta description
+  h1: string;
+  lead: string;
+  bg?: ImageMetadata;
+  serviceType: string;
+  checklist: { heading: string; intro: string; rooms: { name: string; rows: string[] }[]; photo?: ImageMetadata; photoAlt?: string };
+  audience: { heading: string; items: { t: string; d: string }[] };
+  steps: { t: string; d: string }[];
+  rut?: { heading: string; text: string };
+  faqs: { q: string; a: string }[];
+  related: string[];       // slugs
+  noindex?: boolean;
+}
+const p = Astro.props;
+const path = `/${p.slug}/`;
+const url = new URL(path, site.url).href;
+const related = services.filter((s) => p.related.includes(s.slug));
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${p.name} i ${site.mainOrt}`,
+    serviceType: p.serviceType,
+    url,
+    provider: { '@type': 'CleaningService', name: site.name, telephone: site.phones.map((x) => x.tel), email: site.email, url: site.url },
+    areaServed: site.areas.map((a) => ({ '@type': 'City', name: a })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Start', item: new URL('/', site.url).href },
+      { '@type': 'ListItem', position: 2, name: p.name, item: url },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: p.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+<Base title={p.title} description={p.description} path={path} schema={schema} noindex={p.noindex}>
+  <Hero title={p.h1} lead={p.lead} bg={p.bg} crumbs={[{ name: 'Start', href: '/' }, { name: p.name }]} />
+
+  <Checklist {...p.checklist} />
+
+  <section class="aud wrap" aria-labelledby="h-aud">
+    <h2 id="h-aud">{p.audience.heading}</h2>
+    <ul class="aud__list">
+      {p.audience.items.map((i) => (
+        <li><h3>{i.t}</h3><p>{i.d}</p></li>
+      ))}
+    </ul>
+  </section>
+
+  <Steps steps={p.steps} />
+
+  {p.rut && (
+    <section class="rut wrap" aria-labelledby="h-rut">
+      <h2 id="h-rut">{p.rut.heading}</h2>
+      <p>{p.rut.text}</p>
+      <a class="more" href="/rut-avdrag">Läs mer om RUT-avdrag <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+    </section>
+  )}
+
+  <section class="faq wrap" aria-labelledby="h-faq">
+    <h2 id="h-faq">Vanliga frågor om {p.name.toLowerCase()}</h2>
+    <div class="faq__list">
+      {p.faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="rel wrap" aria-labelledby="h-rel">
+    <h2 id="h-rel">Fler tjänster i {site.mainOrt}</h2>
+    <ul class="rel__list">
+      {related.map((s) => (
+        <li>
+          <a href={`/${s.slug}`}>
+            <strong>{s.name}</strong>
+            <span>Läs mer om {s.name.toLowerCase()} i {site.mainOrt}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <OfferForm />
+</Base>
+
+<style>
+  section { scroll-margin-top: 5rem; }
+  .aud, .rut, .faq, .rel { padding-top: var(--space-7); }
+  .aud__list { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+  .aud__list li { border-top: var(--line); padding-top: var(--space-3); }
+  .aud__list h3 { margin-bottom: var(--space-1); }
+  @media (min-width: 56rem) { .aud__list { grid-template-columns: repeat(3, 1fr); } }
+
+  .rut { display: grid; gap: var(--space-3); }
+  .rut p { font-size: var(--step-1); }
+
+  .faq__list { margin-top: var(--space-4); border-top: var(--line); max-width: 52rem; }
+  .faq details { border-bottom: var(--hair); }
+  .faq summary { list-style: none; display: flex; justify-content: space-between; gap: var(--space-3); align-items: center; min-height: 3.5rem; padding-block: var(--space-2); font-family: var(--font-display); font-weight: 700; font-size: var(--step-0); cursor: pointer; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-size: 1.5rem; line-height: 1; }
+  .faq details[open] summary::after { content: '–'; }
+  .faq details p { padding-bottom: var(--space-3); }
+
+  .rel__list { display: grid; gap: 0; margin-top: var(--space-4); border-top: var(--line); }
+  .rel__list a { display: grid; gap: 0.1rem; padding-block: var(--space-3); border-bottom: var(--hair); text-decoration: none; min-height: 3.5rem; }
+  .rel__list strong { font-family: var(--font-display); font-size: var(--step-1); }
+  .rel__list span { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 0.2em; }
+  .rel__list a:hover strong { text-decoration: underline; }
+  @media (min-width: 48rem) { .rel__list { grid-template-columns: 1fr 1fr; column-gap: var(--space-5); } }
+
+  :global(.offer) { margin-top: var(--space-7); }
+</style>

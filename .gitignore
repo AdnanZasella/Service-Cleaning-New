@@ -1,0 +1,15 @@
+node_modules
+dist
+.astro
+.screenshots
+.impeccable/review
+.impeccable/questions
+.impeccable/config.local.json
+.dev.log
+.playwright-mcp
+.claude/settings.local.json
+.claude/skills/impeccable/scripts/bin
+Company current poster.pdf
+Images-to-be-used
+design-refs
+.impeccable/hook.cache.json

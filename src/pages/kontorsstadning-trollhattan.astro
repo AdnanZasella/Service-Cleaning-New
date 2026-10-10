@@ -1,0 +1,41 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+---
+<ServiceLayout
+  slug="kontorsstadning-trollhattan"
+  name="Kontorsstäd"
+  serviceType="Kontorsstädning"
+  title="Kontorsstädning Trollhättan | Kontorsstäd för företag | E&I"
+  description="Kontorsstädning i Trollhättan för företag och lokaler. Se vad som ingår och be om offert på återkommande eller enstaka städning."
+  h1="Kontorsstädning i Trollhättan"
+  lead="Vi städar kontor och lokaler åt företag, återkommande eller vid enstaka tillfällen. Ring eller be om offert."
+  checklist={{
+    heading: 'Det här ingår i kontorsstädningen',
+    intro: 'Så här ser en kontorsstädning ut. Upplägget anpassas efter era lokaler och hur ofta ni vill ha städning.',
+    rooms: [
+      { name: 'Arbetsplatser', rows: ['Skrivbord och ytor torkas av', 'Papperskorgar töms', 'Golv dammsugs och moppas'] },
+      { name: 'Pentry och fikarum', rows: ['Bänkar, diskbänk och blandare rengörs', 'Kyl och micro torkas av utvändigt', 'Golv tvättas'] },
+      { name: 'Toaletter och entré', rows: ['Toaletter och handfat rengörs', 'Speglar torkas av', 'Entré och korridor dammsugs och moppas'] },
+    ],
+  }}
+  audience={{
+    heading: 'Vem är kontorsstäd för?',
+    items: [
+      { t: 'Kontor och lokaler', d: 'Du vill ha en ren arbetsplats utan att anställda behöver städa själva.' },
+      { t: 'Företag med fast städdag', d: 'Du vill ha återkommande städning enligt ett fast schema.' },
+      { t: 'Enstaka städning', d: 'Du behöver en grundstädning, till exempel vid flytt eller inför att nya hyresgäster kommer.' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta om lokalerna', d: 'Ring eller skicka en förfrågan med ort, ungefärlig yta och hur ofta ni vill ha städning.' },
+    { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+    { t: 'Vi städar enligt överenskommelse', d: 'Vi städar på tider som passar er verksamhet.' },
+  ]}
+  faqs={[
+    { q: 'Vad kostar kontorsstädning?', a: 'Priset beror på lokalernas storlek, hur smutsiga de är och hur ofta ni vill ha städning. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Kan vi få RUT-avdrag?', a: 'RUT-avdrag gäller privatpersoner och därför inte kontorsstädning för företag.' },
+    { q: 'Kan ni städa utanför kontorstid?', a: 'Vi anpassar tiderna efter er verksamhet.' },
+    { q: 'Vilka orter städar ni i?', a: 'Vi städar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },
+  ]}
+  related={['fastighetsservice-trollhattan', 'storstad-trollhattan', 'fonsterputsning-trollhattan']}
+/>

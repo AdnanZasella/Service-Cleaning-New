@@ -1,0 +1,25 @@
+---
+interface Props { heading?: string; steps: { t: string; d: string }[]; }
+const { heading = 'Så går det till', steps } = Astro.props;
+---
+<section class="how" aria-labelledby="h-how">
+  <div class="wrap">
+    <h2 id="h-how">{heading}</h2>
+    <ol class="how__list">
+      {steps.map((s, i) => (
+        <li>
+          <span class="how__n" aria-hidden="true">{i + 1}</span>
+          <div><h3>{s.t}</h3><p>{s.d}</p></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style is:global>
+  .how { margin-top: var(--space-7); padding-block: var(--space-6); background: var(--ink); color: var(--paper); }
+  .how__list { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+  .how__list li { display: grid; grid-template-columns: 3rem 1fr; gap: var(--space-3); padding-top: var(--space-3); border-top: 1.5px solid var(--paper); }
+  .how__n { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; }
+  .how__list h3 { margin-bottom: var(--space-1); }
+  @media (min-width: 56rem) { .how__list { grid-template-columns: repeat(3, 1fr); } }
+</style>

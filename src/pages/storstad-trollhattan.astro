@@ -1,0 +1,47 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import bg from '../assets/stadning-golv-skum-trollhattan.jpg';
+---
+<ServiceLayout
+  slug="storstad-trollhattan"
+  name="Storstäd"
+  serviceType="Storstädning"
+  title="Storstäd Trollhättan | Storstädning med offert | E&I"
+  description="Storstäd i Trollhättan när hemmet behöver en grundlig städning. Se vad som ingår rum för rum och be om offert. RUT-avdrag kan gälla."
+  h1="Storstäd i Trollhättan"
+  lead="En grundlig städning av hela bostaden, rum för rum. Ring eller be om offert, så berättar vi vad som ingår."
+  bg={bg}
+  checklist={{
+    heading: 'Det här ingår i storstädningen',
+    intro: 'Storstäd går djupare än vanlig hemstädning. Så här ser den ut rum för rum, och du säger till om du vill lägga till något.',
+    rooms: [
+      { name: 'Kök', rows: ['Spis och ugn rengörs invändigt', 'Kyl och frys torkas ur', 'Skåp och lådor torkas in- och utvändigt', 'Fläkt och kakel rengörs'] },
+      { name: 'Badrum och toalett', rows: ['Kakel och fogar rengörs', 'Golvbrunn rengörs', 'Toalett, handfat och dusch rengörs', 'Kalkavlagringar tas bort'] },
+      { name: 'Övriga rum', rows: ['Lister, dörrar och element torkas av', 'Garderober och hyllor torkas ur', 'Ovanpå skåp och höga ytor dammas', 'Golv dammsugs och moppas'] },
+    ],
+  }}
+  audience={{
+    heading: 'När passar storstäd?',
+    items: [
+      { t: 'Inför högtider och besök', d: 'Du vill att hemmet ska vara grundligt städat innan det blir fullt.' },
+      { t: 'När det var längesedan', d: 'Du vill komma åt det som inte hinns med vid den vanliga städningen.' },
+      { t: 'Vid byte av säsong', d: 'Du vill göra en vår- eller höststädning av hela bostaden.' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta om bostaden', d: 'Ring eller skicka en förfrågan med ort, ungefärlig storlek och önskemål.' },
+    { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+    { t: 'Vi storstädar', d: 'Vi kommer på överenskommen tid och städar enligt listan och era önskemål.' },
+  ]}
+  rut={{
+    heading: 'RUT-avdrag på storstäd',
+    text: 'Som privatperson kan du ha rätt till RUT-avdrag på storstädning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
+  }}
+  faqs={[
+    { q: 'Vad kostar storstäd?', a: 'Priset beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad är skillnaden mot hemstäd?', a: 'Storstäd är en grundlig städning av hela bostaden, inklusive sådant som inte tas varje gång. Hemstäd är den löpande städningen.' },
+    { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på storstäd. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
+    { q: 'Vilka orter städar ni i?', a: 'Vi städar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },
+  ]}
+  related={['hemstad-trollhattan', 'flyttstad-trollhattan', 'fonsterputsning-trollhattan']}
+/>

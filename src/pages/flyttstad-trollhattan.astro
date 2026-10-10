@@ -1,0 +1,48 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import bg from '../assets/tom-lagenhet-flyttstad-trollhattan.jpg';
+---
+<ServiceLayout
+  slug="flyttstad-trollhattan"
+  name="Flyttstäd"
+  serviceType="Flyttstädning"
+  title="Flyttstäd Trollhättan | Flyttstädning med offert | E&I"
+  description="Flyttstäd i Trollhättan inför överlämning av bostaden. Se vad som ingår rum för rum, hur det går till och be om offert. RUT-avdrag kan gälla."
+  h1="Flyttstäd i Trollhättan"
+  lead="Vi flyttstädar bostaden så att den är redo för nästa boende. Ring eller be om offert, så berättar vi vad som ingår."
+  bg={bg}
+  checklist={{
+    heading: 'Det här ingår i flyttstädningen',
+    intro: 'Så här ser vår flyttstädning ut rum för rum. Behöver du något utöver listan säger du till när du ber om offert.',
+    rooms: [
+      { name: 'Kök', rows: ['Spis och ugn rengörs invändigt', 'Kyl och frys tas ur, avfrostas och torkas', 'Skåp och lådor torkas in- och utvändigt', 'Diskbänk, kakel och fläkt rengörs'] },
+      { name: 'Badrum och toalett', rows: ['Toalett, handfat och dusch rengörs', 'Kakel, fogar och golvbrunn görs rena', 'Spegel och skåp torkas', 'Golv tvättas'] },
+      { name: 'Alla rum', rows: ['Golv dammsugs och moppas', 'Lister, element och dörrar torkas av', 'Garderober och hyllor torkas ur', 'Fönsterbrädor och beslag torkas'] },
+    ],
+  }}
+  audience={{
+    heading: 'Vem är flyttstäd för?',
+    items: [
+      { t: 'Du som flyttar', d: 'Du lämnar en bostad och vill slippa städa själv när allt annat ska packas och flyttas.' },
+      { t: 'Hyresvärdar', d: 'Du behöver en ren lägenhet inför nästa hyresgäst.' },
+      { t: 'Mäklare och bostadsägare', d: 'Bostaden ska visas eller överlämnas och ska vara städad och i ordning.' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta om bostaden', d: 'Ring eller skicka en förfrågan med ort, ungefärlig storlek och önskat datum.' },
+    { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+    { t: 'Vi städar och du kontrollerar', d: 'Vi flyttstädar på överenskommen tid. Du går igenom resultatet med oss efteråt.' },
+  ]}
+  rut={{
+    heading: 'RUT-avdrag på flyttstäd',
+    text: 'Som privatperson kan du ha rätt till RUT-avdrag på flyttstädning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
+  }}
+  faqs={[
+    { q: 'Vad kostar flyttstäd?', a: 'Priset beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad ingår i flyttstädningen?', a: 'Köket, badrummet och alla rum städas enligt listan ovan. Behöver du något mer säger du till när du ber om offert.' },
+    { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på flyttstäd. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
+    { q: 'Vilka orter flyttstädar ni i?', a: 'Vi flyttstädar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },
+    { q: 'Kan ni städa åt hyresvärd eller mäklare?', a: 'Ja, flyttstäd passar både privatpersoner, hyresvärdar och mäklare. Ring så berättar du vad som behövs.' },
+  ]}
+  related={['storstad-trollhattan', 'hemstad-trollhattan', 'fonsterputsning-trollhattan']}
+/>

@@ -1,0 +1,38 @@
+---
+// Omfattningen är inte bekräftad av ägaren. Sidan är noindex tills innehållet är verifierat.
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+---
+<ServiceLayout
+  slug="fastighetsservice-trollhattan"
+  name="Fastighetsservice"
+  serviceType="Fastighetsservice"
+  title="Fastighetsservice Trollhättan | E&I"
+  description="Fastighetsservice i Trollhättan för fastighetsägare och BRF. Ring eller be om offert."
+  h1="Fastighetsservice i Trollhättan"
+  lead="Vi hjälper fastighetsägare och BRF med fastighetsservice. Ring eller be om offert, så berättar vi vad vi kan hjälpa till med."
+  noindex
+  checklist={{
+    heading: 'Det här kan vi hjälpa till med',
+    intro: '[TODO: ägaren bekräftar vilka uppgifter fastighetsservice omfattar innan sidan publiceras]',
+    rooms: [
+      { name: 'Fastighet', rows: ['[TODO: uppgift 1]', '[TODO: uppgift 2]', '[TODO: uppgift 3]'] },
+    ],
+  }}
+  audience={{
+    heading: 'Vem är fastighetsservice för?',
+    items: [
+      { t: 'Fastighetsägare', d: 'Du äger en eller flera fastigheter och vill ha hjälp med det löpande. [TODO: bekräfta]' },
+      { t: 'Bostadsrättsföreningar', d: 'Din förening vill ha en lokal firma att anlita. [TODO: bekräfta]' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta vad ni behöver', d: 'Ring eller skicka en förfrågan med ort och vad det gäller.' },
+    { t: 'Du får offert', d: 'Vi återkommer med ett förslag. [TODO: svarstid]' },
+    { t: 'Vi utför arbetet', d: 'Vi kommer på överenskommen tid.' },
+  ]}
+  faqs={[
+    { q: 'Vad ingår i fastighetsservice?', a: '[TODO: omfattning fastighetsservice]' },
+    { q: 'Vilka orter arbetar ni i?', a: 'Vi arbetar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. [TODO: bekräfta för fastighetsservice]' },
+  ]}
+  related={['kontorsstadning-trollhattan', 'storstad-trollhattan', 'hemstad-trollhattan']}
+/>

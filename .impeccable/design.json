@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T18:00:00Z",
+  "title": "Design System: E&I Städ & fastighetsservice",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Blåsvart bläck", "canonical": "#14202b", "tonalRamp": ["#0a1118", "#14202b", "#26384a", "#3f4d5a", "#667683", "#94a1ab", "#c9d1d6", "#e8ecee"] },
+      "mark": { "role": "secondary", "displayName": "Överstrykningsgult", "canonical": "#f2c200", "tonalRamp": ["#4d3e00", "#7a6200", "#a68500", "#d1a800", "#f2c200", "#f6d447", "#fae388", "#fdf3c9"] },
+      "tint": { "role": "tertiary", "displayName": "Ifyllnadsblått", "canonical": "#e2edf1", "tonalRamp": ["#1b2a31", "#3a4f59", "#5d7782", "#86a0ab", "#aebfc7", "#c7d6dc", "#e2edf1", "#f3f8fa"] },
+      "tint-rule": { "role": "tertiary", "displayName": "Tintlinje", "canonical": "#aebfc7", "tonalRamp": ["#2a353b", "#47565e", "#65767f", "#899ba4", "#aebfc7", "#c5d2d8", "#dae3e7", "#edf2f4"] },
+      "paper": { "role": "neutral", "displayName": "Blankettvit", "canonical": "#ffffff", "tonalRamp": ["#d9dcde", "#e4e7e9", "#eceff0", "#f3f5f6", "#f7f9f9", "#fafbfb", "#fdfdfd", "#ffffff"] },
+      "field": { "role": "neutral", "displayName": "Fältgrå", "canonical": "#f3f5f6", "tonalRamp": ["#c9d1d6", "#d6dce0", "#e0e5e8", "#e8ecee", "#eef1f2", "#f3f5f6", "#f7f9f9", "#fbfcfc"] },
+      "ink-soft": { "role": "neutral", "displayName": "Mjukt bläck", "canonical": "#3f4d5a", "tonalRamp": ["#1c252d", "#2b3640", "#3f4d5a", "#566370", "#6f7b86", "#8d97a0", "#b0b8bf", "#d5dade"] },
+      "ink-mist": { "role": "neutral", "displayName": "Dimblå ljus text", "canonical": "#dbe5ea", "tonalRamp": ["#2d3a42", "#4e5f69", "#72858f", "#98a9b2", "#b9c7ce", "#dbe5ea", "#e8eff2", "#f4f8f9"] },
+      "rule": { "role": "neutral", "displayName": "Linjegrå", "canonical": "#c9d1d6", "tonalRamp": ["#5d6a74", "#7a8791", "#97a3ab", "#adb7be", "#c9d1d6", "#d8dee2", "#e6eaed", "#f2f4f5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "H1 i hero, Archivo 800, max 14ch. Textsidor använder clamp(2.25rem, 1.6rem + 4vw, 4.5rem)." },
+      "headline": { "displayName": "Headline", "purpose": "H2 per sektion och stegnummer." },
+      "title": { "displayName": "Title", "purpose": "H3, rumsnamn, ortsnamn, tjänstenamn, hero-ingress, mobilmenyns länkar." },
+      "phone": { "displayName": "Phone", "purpose": "Telefonnumret på gul yta i hero; tabulära siffror." },
+      "body": { "displayName": "Body", "purpose": "Löptext i Source Sans 3, max 68ch." },
+      "label": { "displayName": "Label", "purpose": "Formuläretiketter, tabellhuvud och brödsmulor." }
+    },
+    "shadows": [
+      { "name": "focus-halo", "value": "0 0 0 3px #f2c200", "purpose": "Gul halo utanför 3px bläckfokusring (vit ring på mörka ytor). Enda box-shadow i systemet." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Knapptransitioner, 0.2s på bakgrund, färg och transform." },
+      { "name": "menu-bars", "value": "0.25s var(--ease) transform, 0.2s opacity", "purpose": "Menyknappens stapar korsas när panelen öppnas." },
+      { "name": "tick-in", "value": "clip-path inset(0 100% 0 0) -> inset(0) via view() timeline, entry 10% - 70%", "purpose": "Kryssrutor ritas in vid scroll; av vid reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "phone-wide", "value": "30rem" },
+      { "name": "bar-name", "value": "40rem" },
+      { "name": "table", "value": "48rem" },
+      { "name": "desktop", "value": "56rem" },
+      { "name": "nav", "value": "68rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primär knapp",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Bläck knapp med 1.5px ram, inverteras vid hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Skicka förfrågan</a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; min-height:3rem; padding:0 1.5rem; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; border:1.5px solid #14202b; border-radius:2px; background:#14202b; color:#fff; text-decoration:none; cursor:pointer; transition:background-color .2s cubic-bezier(.16,1,.3,1), color .2s cubic-bezier(.16,1,.3,1); } .ds-btn:hover { background:#fff; color:#14202b; } .ds-btn:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; } .ds-btn:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Ghost-knapp",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Vit knapp med bläcktext för sekundär handling (Be om offert).",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Be om offert</a>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; justify-content:center; min-height:3rem; padding:0 1.5rem; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; border:1.5px solid #14202b; border-radius:2px; background:#fff; color:#14202b; text-decoration:none; transition:background-color .2s, color .2s; } .ds-btn-ghost:hover { background:#14202b; color:#fff; } .ds-btn-ghost:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; }"
+    },
+    {
+      "name": "Ring-knapp (gul)",
+      "kind": "button",
+      "refersTo": "button-mark",
+      "description": "Gul ringknapp med bläcktext; hero och mobilmeny.",
+      "html": "<a class=\"ds-btn-mark\" href=\"tel:+46700132139\">Ring oss</a>",
+      "css": ".ds-btn-mark { display:inline-flex; align-items:center; justify-content:center; min-height:3rem; padding:0 1.5rem; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; border:1.5px solid #14202b; border-radius:2px; background:#f2c200; color:#14202b; text-decoration:none; transition:background-color .2s cubic-bezier(.16,1,.3,1); } .ds-btn-mark:hover { background:#fff; } .ds-btn-mark:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; }"
+    },
+    {
+      "name": "Hero med ringblock",
+      "kind": "custom",
+      "refersTo": "hero",
+      "description": "Bläckband med nedtonat fotografi, H1 och telefonnumret på gul yta.",
+      "html": "<section class=\"ds-hero\"><h1>Städfirma i Trollhättan</h1><p class=\"ds-lead\">Flyttstäd, hemstäd, storstäd, fönsterputsning och kontorsstäd.</p><p class=\"ds-label\">Ring oss för offert</p><a class=\"ds-phone\" href=\"tel:+46700132139\">070-013 21 39</a><p class=\"ds-alt\">Eller ring 070-446 67 54</p></section>",
+      "css": ".ds-hero { background:linear-gradient(90deg, rgb(20 32 43 / .92), rgb(20 32 43 / .66)), #14202b; color:#fff; padding:2.5rem 1.5rem 4rem; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; } .ds-hero h1 { margin:0; max-width:14ch; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:clamp(2.6rem,1.6rem + 5vw,6rem); line-height:1.05; letter-spacing:-.02em; } .ds-lead { margin:1rem 0 0; font-size:1.25rem; max-width:40ch; color:#dbe5ea; } .ds-label { margin:1.5rem 0 0; font-weight:700; color:#dbe5ea; } .ds-phone { display:block; width:max-content; max-width:100%; margin:.75rem 0 1.5rem; padding:.08em .2em; background:#f2c200; color:#14202b; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:clamp(2.25rem,3.4vw,3.5rem); line-height:1.05; letter-spacing:-.03em; font-variant-numeric:tabular-nums; text-decoration:none; } .ds-phone:focus-visible { outline:3px solid #fff; outline-offset:3px; } .ds-alt { margin:0; color:#dbe5ea; }"
+    },
+    {
+      "name": "Header med loggomärke",
+      "kind": "nav",
+      "refersTo": "logo-mark",
+      "description": "Sticky header: bläckrutan E&I med gula bokstäver, desktopnavigation och gul telefonknapp.",
+      "html": "<header class=\"ds-hdr\"><a class=\"ds-logo\" href=\"#\"><span class=\"ds-mark\">E&amp;I</span><span class=\"ds-logo-text\"><strong>Städ</strong><span>Trollhättan med omnejd</span></span></a><nav class=\"ds-nav\"><a href=\"#\">Flyttstäd</a><a href=\"#\">Hemstäd</a><a href=\"#\">Kontakt</a></nav><a class=\"ds-call\" href=\"tel:+46700132139\">070-013 21 39</a></header>",
+      "css": ".ds-hdr { display:flex; align-items:center; gap:.75rem; min-height:4rem; padding-inline:1rem; background:#fff; border-bottom:1.5px solid #14202b; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; color:#14202b; } .ds-logo { display:flex; align-items:center; gap:.75rem; margin-right:auto; text-decoration:none; } .ds-mark { display:grid; place-items:center; width:2.75rem; height:2.75rem; background:#14202b; color:#f2c200; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:-.03em; } .ds-logo-text { display:grid; line-height:1.1; } .ds-logo-text strong { font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:1.15rem; } .ds-logo-text span { font-size:.8rem; color:#3f4d5a; } .ds-nav { display:flex; gap:1.5rem; font-weight:600; } .ds-nav a { padding:.75rem 0; border-bottom:3px solid transparent; text-decoration:none; color:inherit; } .ds-nav a:hover { border-bottom-color:#f2c200; } .ds-call { display:inline-flex; align-items:center; min-height:3rem; padding-inline:.7rem; background:#f2c200; border:1.5px solid #14202b; color:#14202b; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-variant-numeric:tabular-nums; text-decoration:none; } .ds-call:focus-visible, .ds-logo:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; }"
+    },
+    {
+      "name": "Mobilmeny (Meny-panel)",
+      "kind": "nav",
+      "refersTo": "menu-panel",
+      "description": "Meny-knapp med stapar och bläckpanel med länkrader, ring- och offertknapp.",
+      "html": "<div class=\"ds-menu\"><button class=\"ds-menu-btn\" type=\"button\"><span class=\"ds-bars\"><i></i><i></i><i></i></span>Meny</button><div class=\"ds-panel\"><ul><li><a href=\"#\">Flyttstäd</a></li><li><a href=\"#\">Hemstäd</a></li><li><a href=\"#\">RUT-avdrag</a></li></ul><a class=\"ds-panel-call\" href=\"tel:+46700132139\">Ring 070-013 21 39</a></div></div>",
+      "css": ".ds-menu { font-family:'Archivo Variable',Archivo,system-ui,sans-serif; } .ds-menu-btn { display:inline-flex; align-items:center; gap:.75rem; min-height:3rem; padding-inline:1rem; border:1.5px solid #14202b; background:#fff; color:#14202b; font-family:inherit; font-weight:800; font-size:1rem; cursor:pointer; } .ds-bars { display:grid; gap:4px; } .ds-bars i { display:block; width:20px; height:2.5px; background:#14202b; } .ds-menu-btn:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; } .ds-panel { margin-top:.5rem; padding:1rem 1rem 2.5rem; background:#14202b; color:#fff; } .ds-panel ul { list-style:none; margin:0; padding:0; } .ds-panel li { border-bottom:1px solid rgb(255 255 255 / .22); } .ds-panel li a { display:flex; align-items:center; min-height:3.25rem; font-weight:700; font-size:1.25rem; color:#fff; text-decoration:none; } .ds-panel-call { display:flex; align-items:center; justify-content:center; min-height:3rem; margin-top:1.5rem; background:#f2c200; color:#14202b; border:1.5px solid #14202b; border-radius:2px; font-weight:700; text-decoration:none; } .ds-panel a:focus-visible { outline:3px solid #fff; outline-offset:3px; }"
+    },
+    {
+      "name": "Telefonrad med markering",
+      "kind": "custom",
+      "refersTo": "phone-mark",
+      "description": "Telefonnumret i displayskala på gul yta med bläcktext; hero-ringblockets tyngdpunkt.",
+      "html": "<a class=\"ds-phone-line\" href=\"tel:+46700132139\">070-013 21 39</a>",
+      "css": ".ds-phone-line { display:block; width:max-content; background:#f2c200; padding:.08em .2em; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:clamp(2.25rem,3.4vw,3.5rem); line-height:1.05; letter-spacing:-.03em; font-variant-numeric:tabular-nums; color:#14202b; text-decoration:none; } .ds-phone-line:focus-visible { outline:3px solid #14202b; outline-offset:3px; }"
+    },
+    {
+      "name": "RUT-remsa",
+      "kind": "custom",
+      "refersTo": "rut-strip",
+      "description": "Smal fullbredd gul remsa under hero med RUT och orter; en per sida.",
+      "html": "<p class=\"ds-strip\">RUT-avdrag kan gälla · Trollhättan · Grästorp · Lysekil · Smögen</p>",
+      "css": ".ds-strip { margin:0; padding:.7rem 1rem; background:#f2c200; border-block:1.5px solid #14202b; color:#14202b; text-align:center; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; }"
+    },
+    {
+      "name": "Checklistrum",
+      "kind": "card",
+      "refersTo": "checklist-band",
+      "description": "Rumsblock med ritade kryssrutor och tintlinjer mellan rader, på blågrått band.",
+      "html": "<section class=\"ds-incl\"><div class=\"ds-room\"><h3>Kök</h3><ul><li><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2.75\" y=\"2.75\" width=\"18.5\" height=\"18.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M6.5 12.5l4 4 7-9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"square\"/></svg><span>Spis och ugn rengörs invändigt</span></li><li><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2.75\" y=\"2.75\" width=\"18.5\" height=\"18.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M6.5 12.5l4 4 7-9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"square\"/></svg><span>Diskbänk, kakel och fläkt rengörs</span></li></ul></div></section>",
+      "css": ".ds-incl { background:#e2edf1; padding:4rem 1.5rem; color:#14202b; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; } .ds-room { border-top:1.5px solid #14202b; padding-top:1rem; } .ds-room h3 { margin:0 0 1rem; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; font-size:1.5rem; line-height:1.05; letter-spacing:-.02em; } .ds-room ul { list-style:none; margin:0; padding:0; } .ds-room li { display:grid; grid-template-columns:1.4rem 1fr; gap:.75rem; padding-block:.75rem; border-bottom:1px solid #aebfc7; align-items:start; } .ds-room li svg { margin-top:.15rem; }"
+    },
+    {
+      "name": "Steg på bläckband",
+      "kind": "custom",
+      "refersTo": "steps-band",
+      "description": "Tre numrerade steg med vit linje överst, på bläckband.",
+      "html": "<section class=\"ds-how\"><h2>Så går det till</h2><ol><li><span class=\"ds-n\">1</span><div><h3>Ring eller skicka en förfrågan</h3><p>Berätta vad som ska städas, var och ungefär när.</p></div></li><li><span class=\"ds-n\">2</span><div><h3>Du får offert</h3><p>Vi återkommer med ett förslag på vad som ingår.</p></div></li></ol></section>",
+      "css": ".ds-how { background:#14202b; color:#fff; padding:4rem 1.5rem; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; } .ds-how h2, .ds-how h3 { margin:0; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; line-height:1.05; letter-spacing:-.02em; } .ds-how h2 { font-weight:800; font-size:clamp(1.625rem,1.4rem + 1.1vw,2.25rem); } .ds-how h3 { font-weight:700; font-size:1.25rem; margin-bottom:.5rem; } .ds-how ol { list-style:none; margin:1.5rem 0 0; padding:0; display:grid; gap:1.5rem; } .ds-how li { display:grid; grid-template-columns:3rem 1fr; gap:1rem; padding-top:1rem; border-top:1.5px solid #fff; } .ds-n { font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; font-size:1.75rem; line-height:1; } .ds-how p { margin:0; }"
+    },
+    {
+      "name": "Formulärfält",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Etikett över ruta med 1.5px bläckram, 48px hög.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-namn\">Namn</label><input id=\"ds-namn\" type=\"text\" /></div>",
+      "css": ".ds-field { display:grid; gap:.35rem; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; } .ds-field label { font-weight:700; font-size:.9375rem; color:#14202b; } .ds-field input { font:inherit; color:#14202b; background:#fff; border:1.5px solid #14202b; border-radius:2px; min-height:3rem; padding:.55rem 1rem; width:100%; box-sizing:border-box; } .ds-field input:focus-visible { outline:3px solid #14202b; outline-offset:3px; box-shadow:0 0 0 3px #f2c200; }"
+    },
+    {
+      "name": "Offertblad",
+      "kind": "custom",
+      "refersTo": "form-sheet",
+      "description": "Vitt formulärblad med bläckram på blågrått band.",
+      "html": "<section class=\"ds-offer\"><form class=\"ds-sheet\"><div class=\"ds-field\"><label for=\"ds-k\">Telefon eller e-post</label><input id=\"ds-k\" type=\"text\" /></div><button class=\"ds-send\" type=\"submit\">Skicka förfrågan</button></form></section>",
+      "css": ".ds-offer { background:#e2edf1; border-block:1.5px solid #14202b; padding:4rem 1.5rem; } .ds-sheet { display:grid; gap:1rem; background:#fff; border:1.5px solid #14202b; padding:1.5rem; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; color:#14202b; } .ds-sheet label { font-weight:700; font-size:.9375rem; } .ds-sheet input { font:inherit; border:1.5px solid #14202b; border-radius:2px; min-height:3rem; padding:.55rem 1rem; width:100%; box-sizing:border-box; } .ds-send { min-height:3rem; border:1.5px solid #14202b; border-radius:2px; background:#14202b; color:#fff; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:700; font-size:1rem; cursor:pointer; } .ds-send:hover { background:#fff; color:#14202b; }"
+    },
+    {
+      "name": "Mobilfält Ring / Offert",
+      "kind": "nav",
+      "refersTo": "mobile-bar-call",
+      "description": "Fast tvådelat fält längst ned på mobil.",
+      "html": "<div class=\"ds-bar\"><a class=\"ds-bar-call\" href=\"tel:+46700132139\">Ring oss</a><a class=\"ds-bar-offer\" href=\"#offert\">Be om offert</a></div>",
+      "css": ".ds-bar { display:grid; grid-template-columns:1fr 1fr; border-top:1.5px solid #14202b; background:#fff; } .ds-bar a { display:flex; align-items:center; justify-content:center; min-height:3.5rem; font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-weight:800; text-decoration:none; } .ds-bar-call { background:#f2c200; color:#14202b; border-right:1.5px solid #14202b; } .ds-bar-offer { background:#14202b; color:#fff; } .ds-bar a:focus-visible { outline:3px solid #14202b; outline-offset:-6px; }"
+    },
+    {
+      "name": "Tjänsterad",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "Rad i tjänstetabellen med fasta kolumner.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-name\"><strong>Flyttstäd</strong><span>Städning vid flytt</span></span><span>Privatpersoner</span><span>RUT-avdrag kan gälla</span><a href=\"#\">Läs mer</a></div>",
+      "css": ".ds-row { display:grid; grid-template-columns:2.2fr 1.4fr 1.1fr .8fr; gap:1.5rem; align-items:center; padding-block:1rem; border-top:1px solid #c9d1d6; border-bottom:1px solid #c9d1d6; color:#3f4d5a; font-family:'Source Sans 3 Variable','Source Sans 3',system-ui,sans-serif; } .ds-name { display:grid; gap:.15rem; } .ds-name strong { font-family:'Archivo Variable',Archivo,system-ui,sans-serif; font-size:1.5rem; color:#14202b; } .ds-row a { color:#14202b; font-weight:700; min-height:2.75rem; display:inline-flex; align-items:center; }"
+    },
+    {
+      "name": "Stämpel Utfört",
+      "kind": "custom",
+      "refersTo": "ink",
+      "description": "Dekorativ roterad stämpel som avslutar checklistan.",
+      "html": "<div class=\"ds-stamp\"><svg viewBox=\"0 0 220 84\" width=\"220\" height=\"84\"><rect x=\"3\" y=\"3\" width=\"214\" height=\"78\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" rx=\"3\"/><rect x=\"10\" y=\"10\" width=\"200\" height=\"64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"110\" y=\"54\" text-anchor=\"middle\" font-family=\"Archivo Variable, Archivo, sans-serif\" font-weight=\"800\" font-size=\"34\" letter-spacing=\"3\" fill=\"currentColor\">UTFÖRT</text></svg></div>",
+      "css": ".ds-stamp { color:#14202b; transform:rotate(-4deg); width:max-content; opacity:.9; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Besiktningsprotokollet",
+    "overview": "Sidan är det svenska överlämnandeprotokollet: en blankett där varje rad är ikryssad, så att besökaren ser exakt vad som ingår. Allt är uppritat med tunna linjer, rutade rader och fält som ser ut som ifyllnadsrutor. Djup bläcknavy bär text, linjer och de mörka banden (hero, \"Så går det till\", sidfot, mobilmeny); en kall blågrå ton (tint) ligger bakom checklistan och offertformuläret som ifyllnadsyta; en gul överstrykningspenna används där man ringer. Tonen är saklig och rak, aldrig dekorativ.",
+    "keyCharacteristics": [
+      "Vit blankett, navybläck, blågrå ifyllnadsyta, gul markering på ringytor.",
+      "Mörkt bläckband i hero med nedtonat fotografi bakom (bläck i 84 % täckning, vänsterstark gradient från 56rem).",
+      "Linjer (1.5px bläck, 1px grå hårlinje, 1px tint-linje på blågrå yta) i stället för skuggor och kort.",
+      "Ritade kryssrutor som SVG, stämpeln \"UTFÖRT\" som enda dekor.",
+      "Tabulära siffror på alla telefonnummer.",
+      "Fasta kolumner för tjänsteraderna på bred skärm, staplade rader på mobil."
+    ],
+    "rules": [
+      { "name": "The Call Marker Rule", "body": "Gult betyder \"ring här\": telefonnummer, ringknappar, headerns telefonknapp, mobilfältets \"Ring oss\" och loggomärkets bokstäver. Den enda ytstora gula ytan utöver det är en smal remsa med RUT-och-orter-text på startsidan; den är högst en per sida. Gult används aldrig för rubriker, sektionsbakgrunder eller dekor.", "section": "colors" },
+      { "name": "The Ink-On-Yellow Rule", "body": "Text på gult är alltid bläck (#14202b); vit text på gult förekommer inte.", "section": "colors" },
+      { "name": "The Three-Grounds Rule", "body": "En sektion ligger på ett av tre underlag: vit (paper), bläck (ink) eller blågrå (tint). Underlagen alternerar nedför sidan; blågrått hör till innehåll som fylls i eller kryssas av (checklista, offert), bläck till inramning och process.", "section": "colors" },
+      { "name": "The Numerals Rule", "body": "Telefonnummer sätts alltid med tabular-nums; de är aldrig mindre än brödtext och aldrig kursiva. I hero, header, mobilfält och menyknapp sätts de i displayfonten.", "section": "typography" },
+      { "name": "The Ruled-Not-Raised Rule", "body": "Skillnader mellan ytor skapas med linje eller tonbyte, aldrig med box-shadow (fokushalon undantagen).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do rita all struktur med 1.5px bläcklinje (--line) och 1px linjegrå hårlinje (--hair); på tint-ytor används tintlinje.",
+      "Do sätta varje telefonnummer som tel:-länk med tabulära siffror, och i Archivo i hero, header och mobilfält.",
+      "Do begränsa gult till ringytor (nummer, ringknappar, headerns telefonknapp, mobilfältet, loggomärkets bokstäver) och den enda RUT-remsan, alltid med bläcktext ovanpå.",
+      "Do lägga innehåll som kryssas av eller fylls i (checklista, offert) på tint, och inramning och process (hero, steg, sidfot, meny) på bläck.",
+      "Do använda 2px radie på knappar och fält, 0 på övriga ytor.",
+      "Do variera sektionernas layout (kolumntal, klistrig kolumn, tabell, rad) i stället för att upprepa samma kort.",
+      "Do lägga en bläckfärgad täckning över fotografier som bär text, och hålla fotot i hero utan ram.",
+      "Do hålla pekytor på minst 48px (länkrader minst 44px) och visa fokusringen på alla interaktiva element."
+    ],
+    "donts": [
+      "Don't använda skuggor, rundade kort eller blur för att skapa djup.",
+      "Don't låta gult bli rubrikfärg, dekor eller bakgrund för sektioner utöver den enda RUT-remsan.",
+      "Don't förminska telefonnumret till brödtextstorlek i hero, header eller mobilfält.",
+      "Don't blanda in en tredje typfamilj eller färger utanför de nio tokens.",
+      "Don't använda emoji eller teckenglyfer som ikoner; ikoner är ritade SVG-symboler med fyrkantiga ändar.",
+      "Don't centrera hela sektioner; text är vänsterställd mot blanketten (remsan är undantaget).",
+      "Don't lägga vit text på tint eller bläcktext på bläck; kontrasten mellan underlag och text är alltid bläck-på-ljust eller vitt-på-bläck."
+    ]
+  }
+}

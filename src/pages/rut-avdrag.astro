@@ -1,0 +1,30 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { services } from '../config/site';
+const rutServices = services.filter((s) => s.rut);
+---
+<PageLayout
+  title="RUT-avdrag på städning | E&I Städ Trollhättan"
+  description="Så fungerar RUT-avdrag på städning, flyttstäd och fönsterputs för privatpersoner. Läs vilka av våra tjänster som kan omfattas."
+  path="/rut-avdrag"
+  h1="RUT-avdrag på städning"
+  name="RUT-avdrag"
+  intro="RUT-avdraget kan sänka kostnaden för städning hemma. Här är det viktigaste."
+>
+  <section aria-labelledby="h-vad">
+    <h2 id="h-vad">Vad är RUT-avdrag?</h2>
+    <p>RUT-avdrag är en skattereduktion för hushållsnära tjänster, till exempel städning och fönsterputsning, som privatpersoner kan få. Avdraget är 50 % av arbetskostnaden. Reglerna, bland annat högsta belopp och villkor, bestäms av Skatteverket och kan ändras. Kontrollera därför aktuella regler hos <a href="https://www.skatteverket.se/privat/skatter/arbeteochinkomst/rutochrotarbete" rel="noopener">Skatteverket</a>.</p>
+  </section>
+  <section aria-labelledby="h-vilka">
+    <h2 id="h-vilka">Vilka tjänster kan omfattas?</h2>
+    <ul class="plain">
+      {rutServices.map((s) => <li><a href={`/${s.slug}`}>{s.name} i Trollhättan</a></li>)}
+    </ul>
+    <p>Kontorsstäd för företag omfattas inte av RUT-avdrag.</p>
+  </section>
+  <section aria-labelledby="h-hur">
+    <h2 id="h-hur">Hur fungerar det hos oss?</h2>
+    <p>Ring eller skicka en förfrågan, så berättar vi hur RUT-avdraget fungerar för just din städning. Vi återkommer inom 48 timmar.</p>
+    <p><a class="btn" href="/#offert">Be om offert</a></p>
+  </section>
+</PageLayout>

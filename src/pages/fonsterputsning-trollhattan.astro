@@ -1,0 +1,46 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import bg from '../assets/fonsterputsning-skrapa-fonster.jpg';
+---
+<ServiceLayout
+  slug="fonsterputsning-trollhattan"
+  name="Fönsterputsning"
+  serviceType="Fönsterputsning"
+  title="Fönsterputsning Trollhättan | Fönsterputs med offert | E&I"
+  description="Fönsterputsning i Trollhättan för hem och fritidshus. Se vad som ingår och be om offert. Vi kommer även till Lysekil och Smögen. RUT-avdrag kan gälla."
+  h1="Fönsterputsning i Trollhättan"
+  lead="Vi putsar fönstren hemma hos dig, och vid fritidshus på kusten. Ring eller be om offert, så berättar vi vad som ingår."
+  bg={bg}
+  checklist={{
+    heading: 'Det här ingår i fönsterputsningen',
+    intro: 'Så här går fönsterputsningen till. Berätta hur många fönster och våningar det gäller när du ber om offert.',
+    rooms: [
+      { name: 'Fönster', rows: ['Glasytor rengörs in- och utvändigt', 'Karmar och bågar torkas av', 'Fönsterbrädor torkas av'] },
+      { name: 'Altan och uterum', rows: ['Inglasad altan eller balkong putsas', 'Glaspartier och dörrar rengörs', 'Karmar torkas av'] },
+    ],
+  }}
+  audience={{
+    heading: 'Vem är fönsterputsning för?',
+    items: [
+      { t: 'Villa- och radhusägare', d: 'Du har många fönster eller flera våningar och vill slippa putsa själv.' },
+      { t: 'Bostadsrättsägare', d: 'Du vill ha rena fönster och glaspartier utan att ta fram stegen.' },
+      { t: 'Fritidshusägare på kusten', d: 'Du har hus i Lysekil eller på Smögen och vill ha fönstren putsade inför säsongen.' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta om fönstren', d: 'Ring eller skicka en förfrågan med ort, antal fönster och om det gäller flera våningar.' },
+    { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+    { t: 'Vi putsar', d: 'Vi kommer på överenskommen tid och putsar fönstren enligt det ni kommit överens om.' },
+  ]}
+  rut={{
+    heading: 'RUT-avdrag på fönsterputsning',
+    text: 'Som privatperson kan du ha rätt till RUT-avdrag på fönsterputsning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
+  }}
+  faqs={[
+    { q: 'Vad kostar fönsterputsning?', a: 'Priset beror på antal fönster, hur de sitter och hur smutsiga de är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Putsar ni både in- och utvändigt?', a: 'Ja, glasytorna rengörs både in- och utvändigt enligt listan ovan.' },
+    { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på fönsterputsning. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
+    { q: 'Kommer ni till Lysekil och Smögen?', a: 'Ja, alla våra tjänster finns även i Lysekil och på Smögen. Priset kan påverkas av avståndet, så ring eller skicka en förfrågan för en offert.' },
+  ]}
+  related={['storstad-trollhattan', 'hemstad-trollhattan', 'flyttstad-trollhattan']}
+/>

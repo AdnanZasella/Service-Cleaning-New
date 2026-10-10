@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import { site, services } from '../config/site';
+interface Props { title: string; lead: string; bg?: ImageMetadata; crumbs?: { name: string; href?: string }[]; }
+const { title, lead, bg, crumbs = [] } = Astro.props;
+const p1 = site.phones[0];
+const p2 = site.phones[1];
+---
+<section class="hero" aria-labelledby="h1">
+  {bg && <Image class="hero__bg" src={bg} width={1600} height={900} widths={[800, 1200, 1600]} sizes="100vw" loading="eager" fetchpriority="high" alt="" />}
+  <div class="wrap">
+    {crumbs.length > 0 && (
+      <nav class="crumbs" aria-label="Brödsmulor">
+        <ol>
+          {crumbs.map((c) => <li>{c.href ? <a href={c.href}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}
+        </ol>
+      </nav>
+    )}
+    <h1 id="h1">{title}</h1>
+    <p class="hero__lead">{lead}</p>
+
+    <form class="sheet" action="#offert" method="get" aria-label="Snabb offertförfrågan">
+      <p class="sheet__label">Ring oss för offert</p>
+      <a class="sheet__phone tabular" href={`tel:${p1.tel}`}>{p1.display}</a>
+      <p class="sheet__alt">Eller ring <a class="tabular" href={`tel:${p2.tel}`}>{p2.display}</a></p>
+
+      <div class="sheet__fields">
+        <div class="sheet__field">
+          <label for="h-ort">Ort</label>
+          <select id="h-ort" name="ort">
+            <option value="">Välj ort</option>
+            {site.areas.map((a) => <option value={a}>{a}</option>)}
+          </select>
+        </div>
+        <div class="sheet__field">
+          <label for="h-tjanst">Tjänst</label>
+          <select id="h-tjanst" name="tjanst">
+            <option value="">Välj tjänst</option>
+            {services.map((s) => <option value={s.name}>{s.name}</option>)}
+          </select>
+        </div>
+      </div>
+      <button class="btn" type="submit">Be om offert <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+    </form>
+  </div>
+</section>
+<style is:global>
+  .hero { position: relative; isolation: isolate; background: var(--ink); color: var(--paper); padding-block: var(--space-5) var(--space-6); overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 88%; z-index: -2; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(20 32 43 / 0.84); }
+  .hero .wrap { display: grid; }
+  .hero h1 { font-size: clamp(2.6rem, 1.6rem + 5vw, 6rem); max-width: 14ch; }
+  .hero__lead { margin-top: var(--space-3); font-size: var(--step-1); max-width: 40ch; color: var(--ink-mist); }
+  .hero :focus-visible { outline-color: var(--paper); }
+
+  /* Protokollhuvudet: en blankett med telefonnumret som rubrik och riktiga fält */
+  .sheet { margin-top: var(--space-4); background: var(--paper); color: var(--ink); border: var(--line); padding: var(--space-4); display: grid; gap: var(--space-3); }
+  .sheet__label { font-weight: 700; }
+  .sheet__phone { display: block; width: max-content; max-width: 100%; background: var(--mark); color: var(--ink); padding: 0.08em 0.2em; margin-inline: -0.2em; font-family: var(--font-display); font-weight: 800; font-size: var(--step-phone); line-height: 1.05; letter-spacing: -0.03em; text-decoration: none; min-height: 3rem; }
+  .sheet__alt { margin-top: -0.5rem; }
+  .sheet__alt a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .sheet__fields { display: grid; gap: var(--space-3); border-top: var(--hair); padding-top: var(--space-3); }
+  .sheet__field { display: grid; gap: 0.35rem; }
+  .sheet__field label { font-weight: 700; font-size: var(--step--1); }
+  .sheet__field select { font: inherit; color: var(--ink); background: var(--paper); border: var(--line); border-radius: var(--radius); min-height: var(--tap); padding: 0.55rem var(--space-3); width: 100%; }
+  .sheet :focus-visible { outline-color: var(--ink); }
+
+  @media (min-width: 30rem) and (max-width: 55.99rem) { .sheet__fields { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 56rem) {
+    .hero { padding-block: var(--space-7); }
+    .hero .wrap { grid-template-columns: 1.3fr 1fr; column-gap: var(--space-6); align-items: center; }
+    .hero h1, .hero__lead, .crumbs { grid-column: 1; }
+    .sheet { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding: var(--space-5); }
+    .sheet__phone { font-size: clamp(2.1rem, 3vw, 3.25rem); }
+  }
+
+  .crumbs { margin-bottom: var(--space-3); font-size: var(--step--1); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+  .crumbs li { display: flex; align-items: center; }
+  .crumbs li + li::before { content: '›'; margin-right: 0.5rem; opacity: 0.7; }
+  .crumbs a, .crumbs span { color: var(--ink-mist); }
+  .crumbs a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+</style>

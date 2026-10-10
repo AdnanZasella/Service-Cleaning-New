@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+---
+<Base title="Tack för din förfrågan | E&I Städ Trollhättan" description="Vi har tagit emot din offertförfrågan och återkommer så snart vi kan." path="/tack" noindex>
+  <section class="wrap" style="padding-block: var(--space-6)">
+    <h1>Tack, vi har tagit emot din förfrågan</h1>
+    <p style="margin-top: var(--space-4)">Vi återkommer till dig. Är det brådskande kan du ringa <a class="tabular" href={`tel:${site.phones[0].tel}`}>{site.phones[0].display}</a>.</p>
+    <p style="margin-top: var(--space-4)"><a class="btn btn--ghost" href="/">Tillbaka till startsidan</a></p>
+  </section>
+</Base>

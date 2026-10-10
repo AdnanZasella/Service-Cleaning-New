@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, services } from '../config/site';
+---
+<Base title="Sidan finns inte | E&I Städ Trollhättan" description="Sidan du letar efter finns inte. Ring oss eller gå till startsidan." path="/404" noindex>
+  <section class="wrap" style="padding-block: var(--space-6)">
+    <h1>Sidan finns inte</h1>
+    <p style="margin-top: var(--space-4)">Länken kan vara gammal. Ring oss på <a class="tabular" href={`tel:${site.phones[0].tel}`}>{site.phones[0].display}</a> eller gå vidare:</p>
+    <ul style="margin-top: var(--space-4); display: grid; gap: var(--space-1)">
+      <li><a href="/">Startsidan</a></li>
+      {services.map((s) => <li><a href={`/${s.slug}`}>{s.name} i {site.mainOrt}</a></li>)}
+    </ul>
+  </section>
+</Base>

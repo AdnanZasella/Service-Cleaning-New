@@ -1,0 +1,23 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../config/site';
+// [TODO: Google Business Profile-recensionslänk] Byt när länken finns.
+const reviewUrl = '';
+---
+<PageLayout
+  title="Lämna en recension | E&I Städ Trollhättan"
+  description="Har du anlitat E&I Städ? Berätta gärna hur det gick genom att lämna en recension på Google."
+  path="/recension"
+  h1="Lämna en recension"
+  name="Recension"
+  intro="Din åsikt hjälper andra som letar städfirma i Trollhättan."
+  noindex
+>
+  <section aria-labelledby="h-rec">
+    <h2 id="h-rec">Hur gick det?</h2>
+    <p>Har du anlitat {site.shortName}? Det tar någon minut att berätta på Google hur det gick.</p>
+    {reviewUrl
+      ? <p><a class="btn" href={reviewUrl} rel="noopener">Lämna en recension på Google</a></p>
+      : <p>[TODO: länk till Googles recensionsformulär när företagsprofilen finns]</p>}
+  </section>
+</PageLayout>

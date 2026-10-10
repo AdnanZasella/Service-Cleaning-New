@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import OfferForm from '../components/OfferForm.astro';
+import Checklist from '../components/Checklist.astro';
+import Steps from '../components/Steps.astro';
+import { Image } from 'astro:assets';
+import { site, services } from '../config/site';
+import lagenhet from '../assets/tom-lagenhet-flyttstad-trollhattan.jpg';
+import fonster from '../assets/fonsterputsning-skrapa-fonster.jpg';
+
+const allRooms = [
+  { name: 'Kök', rows: ['Spis och ugn rengörs invändigt', 'Kyl och frys tas ur, avfrostas och torkas', 'Skåp och lådor torkas in- och utvändigt', 'Diskbänk, kakel och fläkt rengörs'] },
+  { name: 'Badrum och toalett', rows: ['Toalett, handfat och dusch rengörs', 'Kakel, fogar och golvbrunn görs rena', 'Spegel och skåp torkas', 'Golv tvättas'] },
+  { name: 'Alla rum', rows: ['Golv dammsugs och moppas', 'Lister, element och dörrar torkas av', 'Garderober och hyllor torkas ur', 'Fönsterbrädor och beslag torkas'] },
+];
+const rooms = allRooms.map((r) => ({ ...r, rows: r.rows.slice(0, 2) }));
+
+const steps = [
+  { t: 'Ring eller skicka en förfrågan', d: 'Berätta vad som ska städas, var och ungefär när. Du kan ringa direkt eller fylla i formuläret längre ner.' },
+  { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+  { t: 'Vi kommer och städar', d: 'Vi städar på överenskommen tid. Efteråt stämmer du av med oss att allt blev som ni kommit överens om.' },
+];
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'CleaningService',
+  name: site.name,
+  url: site.url,
+  telephone: site.phones.map((p) => p.tel),
+  email: site.email,
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: site.openingHours.days, opens: site.openingHours.opens, closes: site.openingHours.closes }],
+  areaServed: site.areas.map((a) => ({ '@type': 'City', name: a })),
+  // läggs till när uppgifterna finns
+}];
+---
+<Base
+  title="Städfirma Trollhättan | Flyttstäd, hemstäd, fönsterputs"
+  description="Städfirma i Trollhättan för flyttstäd, hemstäd, storstäd, fönsterputs och kontorsstäd. Även Grästorp, Lysekil och Smögen. Ring för offert."
+  path="/"
+  schema={schema}
+>
+  <Hero
+    title="Städfirma i Trollhättan"
+    lead="Flyttstäd, hemstäd, storstäd, fönsterputsning och kontorsstäd. Vi kommer även till Grästorp, Lysekil och Smögen."
+    bg={lagenhet}
+  />
+
+  <section class="svc wrap" id="tjanster" aria-labelledby="h-svc">
+    <h2 id="h-svc">Våra tjänster i Trollhättan</h2>
+    <p class="svc__intro">Välj tjänst för att se vad som ingår. RUT-avdrag kan gälla för privatpersoner.</p>
+    <div class="svc__table" role="table" aria-label="Tjänster">
+      <div class="svc__row svc__row--head" role="row">
+        <span role="columnheader">Tjänst</span>
+        <span role="columnheader">För vem</span>
+        <span role="columnheader">RUT</span>
+        <span role="columnheader"><span class="visually-hidden">Länk</span></span>
+      </div>
+      {services.map((s) => (
+        <div class="svc__row" role="row">
+          <span role="cell" class="svc__name"><strong>{s.name}</strong><span class="svc__sum">{s.summary}</span></span>
+          <span class="svc__meta"><span role="cell" class="svc__who">{s.forWho}</span><span role="cell" class="svc__rut">{s.rut ? 'RUT-avdrag kan gälla' : 'Gäller inte företag'}</span></span>
+          <span role="cell" class="svc__go"><a href={`/${s.slug}`} aria-label={`Läs mer om ${s.name.toLowerCase()} i ${site.mainOrt}`}>Läs mer <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a></span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Checklist
+    heading="Så här ser ett flyttstäd ut"
+    intro="Ett utdrag ur vår flyttstädning, rum för rum. Hela listan finns på flyttstädsidan."
+    rooms={rooms}
+        more={{ href: '/flyttstad-trollhattan', label: 'Se hela listan för flyttstäd i Trollhättan' }}
+  />
+
+  <section class="area wrap" id="omraden" aria-labelledby="h-area">
+    <h2 id="h-area">Var vi städar</h2>
+    <div class="area__wrap">
+    <figure class="area__photo">
+      <Image src={fonster} width={640} height={800} widths={[400, 640]} sizes="(min-width: 56rem) 20rem, 100vw" loading="lazy" alt="Hand med fönsterskrapa som putsar ett skumtäckt fönster med utsikt mot en trädgård" />
+      <figcaption><a href="/fonsterputsning-trollhattan">Fönsterputsning i Trollhättan och på kusten</a></figcaption>
+    </figure>
+    <div class="area__grid">
+      <div class="area__main">
+        <h3>Trollhättan</h3>
+        <p>Här är vi baserade. Alla våra tjänster finns i Trollhättan med omnejd.</p>
+      </div>
+      <div class="area__other">
+        <h3>Grästorp</h3>
+        <p>Alla våra tjänster finns även i Grästorp. Priset kan påverkas av avståndet.</p>
+      </div>
+      <div class="area__other">
+        <h3>Lysekil</h3>
+        <p>Alla våra tjänster finns även i Lysekil. Priset kan påverkas av avståndet.</p>
+      </div>
+      <div class="area__other">
+        <h3>Smögen</h3>
+        <p>Alla våra tjänster finns även på Smögen. Priset kan påverkas av avståndet.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <Steps steps={steps} />
+
+  <OfferForm />
+</Base>
+
+<style>
+  section { scroll-margin-top: 5rem; }
+
+
+  /* Tjänster, fasta kolumner */
+  .svc { padding-top: var(--space-7); }
+  .svc__intro { margin-top: var(--space-3); }
+  .svc__table { margin-top: var(--space-4); border-top: var(--line); }
+  .svc__row { display: grid; grid-template-columns: 1fr auto; column-gap: var(--space-3); row-gap: 0.25rem; padding-block: var(--space-3); border-bottom: var(--hair); align-items: center; }
+  .svc__name { grid-column: 1; }
+  .svc__meta { grid-column: 1; grid-row: 2; display: flex; flex-wrap: wrap; column-gap: var(--space-3); font-size: var(--step--1); }
+  .svc__go { grid-column: 2; grid-row: 1 / span 2; }
+
+  .svc__row--head { display: none; font-size: var(--step--1); font-weight: 700; color: var(--ink-soft); padding-block: var(--space-2); border-bottom: var(--line); }
+  .svc__name { display: grid; gap: 0.15rem; }
+  .svc__name strong { font-family: var(--font-display); font-size: var(--step-1); }
+  .svc__sum, .svc__who, .svc__rut { color: var(--ink-soft); }
+  .svc__go a { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: 700; min-height: 2.75rem; }
+  @media (min-width: 48rem) {
+    .svc__row { grid-template-columns: 2.2fr 1.4fr 1.1fr 0.8fr; gap: var(--space-4); }
+    .svc__meta { display: contents; font-size: inherit; }
+    .svc__name, .svc__go { grid-column: auto; grid-row: auto; }
+    .svc__row--head { display: grid; }
+  }
+
+  /* Orter */
+  .area { padding-top: var(--space-7); }
+  .area__wrap { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+  .area__photo { margin: 0; }
+  .area__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border: var(--line); }
+  .area__photo figcaption { margin-top: var(--space-2); font-weight: 700; }
+  .area__grid { display: grid; gap: var(--space-4); }
+  .area__main { background: var(--ink); color: var(--paper); padding: var(--space-4); }
+  .area__other { border-top: var(--line); padding-top: var(--space-3); }
+  .area__grid h3 { margin-bottom: var(--space-2); }
+  @media (min-width: 56rem) {
+    .area__wrap { grid-template-columns: 1fr 1.7fr; gap: var(--space-5); align-items: start; }
+    .area__photo img { aspect-ratio: 4 / 5; }
+    .area__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    .area__main { grid-column: 1 / -1; }
+  }
+
+</style>

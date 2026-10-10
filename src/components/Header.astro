@@ -1,0 +1,87 @@
+---
+import { site, services } from '../config/site';
+const p = site.phones[0];
+const nav = services.filter((s) => s.slug !== 'fastighetsservice-trollhattan');
+---
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="/" aria-label={`${site.name}, startsida`}>
+      <span class="logo__mark" aria-hidden="true">E&amp;I</span>
+      <span class="logo__text"><strong>Städ</strong><span>Trollhättan med omnejd</span></span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Huvudmeny">
+      {nav.map((s) => <a href={`/${s.slug}`}>{s.name}</a>)}
+      <a href="/kontakt">Kontakt</a>
+    </nav>
+
+    <a class="hdr__call tabular" href={`tel:${p.tel}`} aria-label={`Ring ${p.display}`}>
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-phone" /></svg>
+      <span class="hdr__num">{p.display}</span>
+    </a>
+
+    <details class="menu" id="meny">
+      <summary aria-label="Meny">
+        <span class="menu__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="menu__label">Meny</span>
+      </summary>
+      <div class="menu__panel">
+        <ul>
+          {services.map((s) => <li><a href={`/${s.slug}`}>{s.name}</a></li>)}
+          <li><a href="/#omraden">Var vi städar</a></li>
+          <li><a href="/rut-avdrag">RUT-avdrag</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+        <div class="menu__cta">
+          <a class="btn btn--mark" href={`tel:${p.tel}`}>Ring {p.display}</a>
+          <a class="btn btn--ghost" href="/#offert">Be om offert</a>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>
+<script is:inline>
+  var menu = document.getElementById('meny');
+  document.querySelectorAll('#meny a').forEach((a) => a.addEventListener('click', () => { menu.open = false; }));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+</script>
+<style>
+  .hdr { background: var(--paper); border-bottom: var(--line); position: sticky; top: 0; z-index: 40; }
+  .hdr__in { display: flex; align-items: center; gap: var(--space-2); min-height: 4rem; }
+
+  .logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; margin-right: auto; min-height: 3rem; }
+  .logo__mark { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; background: var(--ink); color: var(--mark); font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.03em; }
+  .logo__text { display: grid; line-height: 1.1; }
+  .logo__text strong { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
+  .logo__text span { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .hdr__nav { display: none; gap: var(--space-4); font-weight: 600; }
+  .hdr__nav a { text-decoration: none; padding: var(--space-2) 0; border-bottom: 3px solid transparent; }
+  .hdr__nav a:hover { border-bottom-color: var(--mark); }
+
+  .hdr__call { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-width: 3rem; min-height: 3rem; background: var(--mark); border: var(--line); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 800; padding-inline: 0.7rem; }
+  .hdr__num { display: none; }
+
+  .menu summary { list-style: none; display: inline-flex; align-items: center; gap: var(--space-2); min-height: 3rem; padding-inline: var(--space-3); border: var(--line); background: var(--paper); cursor: pointer; font-family: var(--font-display); font-weight: 800; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu__bars { display: grid; gap: 4px; }
+  .menu__bars i { display: block; width: 20px; height: 2.5px; background: var(--ink); transition: transform 0.25s var(--ease), opacity 0.2s; }
+  .menu[open] summary { background: var(--ink); color: var(--paper); }
+  .menu[open] .menu__bars i { background: var(--paper); }
+  .menu[open] .menu__bars i:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .menu[open] .menu__bars i:nth-child(2) { opacity: 0; }
+  .menu[open] .menu__bars i:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .menu__panel { position: absolute; left: 0; right: 0; top: 100%; background: var(--ink); color: var(--paper); border-bottom: var(--line); max-height: calc(100dvh - 4rem); overflow: auto; padding: var(--space-3) var(--gutter) var(--space-5); }
+  .menu__panel ul { max-width: var(--max); margin-inline: auto; }
+  .menu__panel li { border-bottom: 1px solid rgb(255 255 255 / 0.22); }
+  .menu__panel li a { display: flex; align-items: center; min-height: 3.25rem; font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); text-decoration: none; }
+  .menu__cta { display: grid; gap: var(--space-2); margin-top: var(--space-4); max-width: var(--max); margin-inline: auto; }
+  .menu__panel :focus-visible { outline-color: var(--paper); }
+
+  @media (min-width: 30rem) { .hdr__num { display: inline; } }
+  @media (max-width: 29.99rem) { .logo__text span { display: none; } }
+  @media (min-width: 68rem) {
+    .hdr__nav { display: flex; }
+    .menu { display: none; }
+  }
+</style>

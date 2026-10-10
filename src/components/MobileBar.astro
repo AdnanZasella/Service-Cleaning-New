@@ -1,0 +1,27 @@
+---
+import { site } from '../config/site';
+const p = site.phones[0];
+---
+<div class="bar" role="region" aria-label="Kontakta oss">
+  <a class="bar__call tabular" href={`tel:${p.tel}`}>
+    <svg width="22" height="22" aria-hidden="true"><use href="#i-phone" /></svg> Ring oss
+  </a>
+  <a class="bar__offer" href="/#offert">Be om offert</a>
+</div>
+<script is:inline>
+  (function () {
+    var bar = document.querySelector('.bar');
+    var offer = document.getElementById('offert');
+    if (!bar || !offer || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (e) { bar.classList.toggle('bar--hidden', e[0].isIntersecting); }, { threshold: 0.25 }).observe(offer);
+  })();
+</script>
+<style>
+  .bar { position: fixed; inset: auto 0 0 0; z-index: 30; display: grid; grid-template-columns: 1fr 1fr; border-top: var(--line); background: var(--paper); padding-bottom: env(safe-area-inset-bottom); }
+  .bar a { display: flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 3.5rem; font-family: var(--font-display); font-weight: 800; text-decoration: none; }
+  .bar__call { background: var(--mark); border-right: var(--line); }
+  .bar__offer { background: var(--ink); color: var(--paper); }
+  .bar--hidden { transform: translateY(100%); }
+  .bar { transition: transform 0.25s var(--ease); }
+  @media (min-width: 56rem) { .bar { display: none; } }
+</style>

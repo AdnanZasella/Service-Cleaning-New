@@ -1,0 +1,41 @@
+---
+import { site, services } from '../config/site';
+---
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <div>
+      <p class="ftr__name">{site.name}</p>
+      <p>Serviceområden: {site.areas.join(', ')}</p>
+      <p>{site.hoursText}</p>
+      <ul class="ftr__contact">
+        {site.phones.map((p) => <li><a class="tabular" href={`tel:${p.tel}`}>{p.display}</a></li>)}
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      </ul>
+    </div>
+    <nav aria-label="Tjänster">
+      <p class="ftr__h">Tjänster</p>
+      <ul>
+        {services.map((s) => <li><a href={`/${s.slug}`}>{s.name} i {site.mainOrt}</a></li>)}
+      </ul>
+    </nav>
+    <nav aria-label="Information">
+      <p class="ftr__h">Information</p>
+      <ul>
+        <li><a href="/rut-avdrag">RUT-avdrag</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href={site.reviewUrl}>Lämna en recension</a></li>
+        <li><a href="/integritetspolicy">Integritetspolicy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<style>
+  .ftr { margin-top: 0; background: var(--ink); color: var(--paper); padding-block: var(--space-6); }
+  .ftr__in { display: grid; gap: var(--space-5); }
+  .ftr__name { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); margin-bottom: var(--space-2); }
+  .ftr__h { font-family: var(--font-display); font-weight: 700; margin-bottom: var(--space-2); }
+  .ftr ul { display: grid; gap: 0; margin-top: var(--space-2); }
+  .ftr a { text-underline-offset: 0.2em; display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .ftr :focus-visible { outline-color: var(--paper); }
+  @media (min-width: 48rem) { .ftr__in { grid-template-columns: 1.4fr 1fr 1fr; } }
+</style>

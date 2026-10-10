@@ -1,0 +1,46 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+---
+<ServiceLayout
+  slug="hemstad-trollhattan"
+  name="Hemstäd"
+  serviceType="Hemstädning"
+  title="Hemstäd Trollhättan | Hemstädning med offert | E&I"
+  description="Hemstäd i Trollhättan, regelbundet eller vid enstaka tillfällen. Se vad som ingår, hur det går till och be om offert. RUT-avdrag kan gälla."
+  h1="Hemstäd i Trollhättan"
+  lead="Vi städar hemma hos dig, regelbundet eller vid enstaka tillfällen. Ring eller be om offert, så berättar vi vad som ingår."
+  checklist={{
+    heading: 'Det här ingår i hemstädningen',
+    intro: 'Så här ser en hemstädning ut rum för rum. Önskar du något särskilt säger du till när du ber om offert.',
+    rooms: [
+      { name: 'Kök', rows: ['Bänkar och ytor torkas av', 'Diskbänk och blandare rengörs', 'Spis och micro torkas av utvändigt', 'Golv dammsugs och moppas'] },
+      { name: 'Badrum och toalett', rows: ['Toalett, handfat och dusch rengörs', 'Spegel och kakel torkas av', 'Golv tvättas'] },
+      { name: 'Övriga rum', rows: ['Ytor och hyllor dammas', 'Golv dammsugs och moppas', 'Papperskorgar töms'] },
+    ],
+  }}
+  audience={{
+    heading: 'Vem är hemstäd för?',
+    items: [
+      { t: 'Du som vill ha tid över', d: 'Du vill lägga helgen på annat än att städa hemma.' },
+      { t: 'Du som vill ha regelbunden städning', d: 'Du vill att hemmet städas med jämna mellanrum och slippa tänka på det själv.' },
+      { t: 'Du som behöver hjälp vid ett tillfälle', d: 'Du ska ha besök, har varit sjuk eller vill ha en grundlig städning en gång.' },
+    ],
+  }}
+  steps={[
+    { t: 'Berätta vad du behöver', d: 'Ring eller skicka en förfrågan med ort, ungefärlig storlek och hur ofta du vill ha städning.' },
+    { t: 'Du får offert', d: 'Vi återkommer inom 48 timmar med ett förslag på vad som ingår och vad det kostar.' },
+    { t: 'Vi städar hemma hos dig', d: 'Vi kommer på överenskommen tid och städar enligt det ni kommit överens om.' },
+  ]}
+  rut={{
+    heading: 'RUT-avdrag på hemstäd',
+    text: 'Som privatperson kan du ha rätt till RUT-avdrag på hemstädning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
+  }}
+  faqs={[
+    { q: 'Vad kostar hemstäd?', a: 'Priset beror på bostadens storlek, hur smutsig den är och hur ofta du vill ha städning. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Hur ofta kan ni städa?', a: 'Berätta hur ofta du vill ha städning när du ber om offert, så föreslår vi ett upplägg.' },
+    { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på hemstäd. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
+    { q: 'Vilka orter städar ni i?', a: 'Vi städar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },
+    { q: 'Behöver jag vara hemma när ni städar?', a: 'Det bestämmer vi tillsammans när vi planerar städningen.' },
+  ]}
+  related={['storstad-trollhattan', 'flyttstad-trollhattan', 'fonsterputsning-trollhattan']}
+/>

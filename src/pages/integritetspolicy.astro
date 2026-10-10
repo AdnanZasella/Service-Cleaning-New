@@ -1,0 +1,86 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../config/site';
+---
+<PageLayout
+  title="Integritetspolicy | E&I Städ Trollhättan"
+  description="Så hanterar E&I Städ dina personuppgifter: vilka uppgifter vi samlar in, varför, hur länge och vilka rättigheter du har."
+  path="/integritetspolicy"
+  h1="Integritetspolicy"
+  name="Integritetspolicy"
+  intro="Så här hanterar vi dina personuppgifter, och vilka rättigheter du har."
+>
+  <section aria-labelledby="h-ansv">
+    <h2 id="h-ansv">Vem ansvarar för dina uppgifter?</h2>
+    <p>{site.name} är personuppgiftsansvarig för de uppgifter du lämnar till oss. Organisationsnummer: [TODO: organisationsnummer].</p>
+    <p>Du når oss på <a href={`mailto:${site.email}`}>{site.email}</a> eller på telefon <a class="tabular" href={`tel:${site.phones[0].tel}`}>{site.phones[0].display}</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-vilka">
+    <h2 id="h-vilka">Vilka uppgifter vi samlar in</h2>
+    <p>Det beror på hur du kontaktar oss:</p>
+    <ul>
+      <li>När du fyller i offertformuläret: namn, telefonnummer eller e-postadress, vilken tjänst och ort det gäller, samt det du skriver i meddelandet.</li>
+      <li>När du ringer eller mejlar oss: de uppgifter du själv berättar, till exempel namn, adress till bostaden och vad som ska städas.</li>
+      <li>När du blir kund: namn, adress, kontaktuppgifter och uppgifter om uppdraget som behövs för genomförande och fakturering.</li>
+      <li>Om du vill använda RUT-avdrag: personnummer, som behövs för att ansöka om avdraget hos Skatteverket. Vi frågar bara efter det när det behövs.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-varfor">
+    <h2 id="h-varfor">Varför vi behandlar uppgifterna</h2>
+    <ul>
+      <li>För att svara på din förfrågan och lämna en offert. Rättslig grund: åtgärder på din begäran inför ett avtal.</li>
+      <li>För att utföra uppdraget och fakturera. Rättslig grund: fullgörande av avtal.</li>
+      <li>För att uppfylla bokföringsskyldighet och hantera RUT-avdrag. Rättslig grund: rättslig förpliktelse.</li>
+      <li>För att kunna visa vad som överenskommits om det uppstår frågor i efterhand. Rättslig grund: berättigat intresse.</li>
+    </ul>
+    <p>Vi använder inte dina uppgifter för automatiserade beslut eller profilering, och vi säljer dem inte vidare.</p>
+  </section>
+
+  <section aria-labelledby="h-hur">
+    <h2 id="h-hur">Hur länge vi sparar uppgifterna</h2>
+    <ul>
+      <li>Förfrågningar som inte leder till ett uppdrag: högst 12 månader.</li>
+      <li>Uppgifter om uppdrag och kunder: så länge uppdraget pågår och därefter så länge vi har ett skäl att spara dem, till exempel för reklamationer.</li>
+      <li>Fakturor och annat bokföringsunderlag: sju år efter utgången av det räkenskapsår uppgifterna hör till, enligt bokföringslagen.</li>
+    </ul>
+    <p>När tiden gått ut raderas eller anonymiseras uppgifterna.</p>
+  </section>
+
+  <section aria-labelledby="h-del">
+    <h2 id="h-del">Vilka vi delar uppgifter med</h2>
+    <p>Vi delar bara uppgifter med dem som behöver dem för att vi ska kunna göra vårt jobb, och de får bara behandla uppgifterna på våra instruktioner:</p>
+    <ul>
+      <li>Netlify, som tillhandahåller webbplatsen och tar emot offertformuläret. Uppgifterna kan behandlas utanför EU/EES, bland annat i USA, med lämpliga skyddsåtgärder enligt dataskyddsförordningen.</li>
+      <li>Vår e-postleverantör, som levererar formulärsvar och e-post till oss.</li>
+      <li>Redovisningsbyrå eller revisor, när det behövs för bokföring.</li>
+      <li>Skatteverket, när du använder RUT-avdrag, och andra myndigheter när vi är skyldiga enligt lag.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-kakor">
+    <h2 id="h-kakor">Kakor och statistik</h2>
+    <p>Den här webbplatsen använder inga kakor för spårning, statistik eller reklam. Webbhotellet kan i sina loggar tillfälligt registrera tekniska uppgifter som IP-adress för att webbplatsen ska fungera och vara säker. Om vi senare lägger till statistik eller annan spårning uppdaterar vi den här sidan och frågar om ditt samtycke när det krävs.</p>
+  </section>
+
+  <section aria-labelledby="h-rat">
+    <h2 id="h-rat">Dina rättigheter</h2>
+    <p>Du har rätt att:</p>
+    <ul>
+      <li>få veta vilka uppgifter vi har om dig och få en kopia (tillgång)</li>
+      <li>få felaktiga uppgifter rättade</li>
+      <li>få uppgifter raderade när vi inte längre har skäl att spara dem</li>
+      <li>begära att vi begränsar behandlingen</li>
+      <li>invända mot behandling som grundar sig på berättigat intresse</li>
+      <li>få ut uppgifter du lämnat till oss i ett vanligt, maskinläsbart format (dataportabilitet)</li>
+    </ul>
+    <p>Kontakta oss på <a href={`mailto:${site.email}`}>{site.email}</a> om du vill utöva någon av rättigheterna. Vi svarar inom en månad.</p>
+    <p>Om du tycker att vi behandlar dina uppgifter fel kan du lämna klagomål till Integritetsskyddsmyndigheten (IMY), <a href="https://www.imy.se" rel="noopener">imy.se</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-andr">
+    <h2 id="h-andr">Ändringar</h2>
+    <p>Vi kan uppdatera policyn om vår behandling ändras. Senast uppdaterad: 10 oktober 2026.</p>
+  </section>
+</PageLayout>

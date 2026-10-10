@@ -1,0 +1,45 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import OfferForm from '../components/OfferForm.astro';
+import { site, services } from '../config/site';
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'CleaningService',
+  name: site.name,
+  url: site.url,
+  telephone: site.phones.map((p) => p.tel),
+  email: site.email,
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: site.openingHours.days, opens: site.openingHours.opens, closes: site.openingHours.closes }],
+  areaServed: site.areas.map((a) => ({ '@type': 'City', name: a })),
+  //
+}];
+---
+<PageLayout
+  title="Kontakt städfirma Trollhättan | E&I Städ"
+  description="Kontakta E&I Städ i Trollhättan. Ring, mejla eller be om offert. Vi städar i Trollhättan, Grästorp, Lysekil och Smögen."
+  path="/kontakt"
+  h1="Kontakta oss"
+  name="Kontakt"
+  intro="Ring oss eller skicka en förfrågan, så återkommer vi."
+  schema={schema}
+>
+  <section class="contact" aria-labelledby="h-kontakt">
+    <h2 id="h-kontakt">{site.name}</h2>
+    <p>Telefon:</p>
+    <ul>
+      {site.phones.map((p) => <li><a class="tabular" href={`tel:${p.tel}`}>{p.display}</a></li>)}
+    </ul>
+    <p>E-post: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <p>Vi städar i {site.areas.join(', ')}. Alla tjänster finns på alla orter, men priset kan påverkas av avståndet.</p>
+    <p>Öppettider: {site.hoursText}</p>
+    <p>Vi återkommer på förfrågningar {site.responseTime}.</p>
+    </section>
+  <section aria-labelledby="h-tj">
+    <h2 id="h-tj">Våra tjänster</h2>
+    <ul class="plain">
+      {services.map((s) => <li><a href={`/${s.slug}`}>{s.name} i {site.mainOrt}</a></li>)}
+    </ul>
+  </section>
+  <OfferForm slot="after" />
+</PageLayout>

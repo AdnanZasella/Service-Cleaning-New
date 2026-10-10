@@ -1,0 +1,64 @@
+---
+import { site, services } from '../config/site';
+const p1 = site.phones[0];
+---
+<section class="offer" id="offert" aria-labelledby="h-offer">
+  <div class="wrap offer__in">
+    <div class="offer__text">
+      <h2 id="h-offer">Be om offert</h2>
+      <p>Fyll i formuläret så återkommer vi. Vill du hellre prata ringer du <a class="tabular" href={`tel:${p1.tel}`}>{p1.display}</a>.</p>
+    </div>
+    <form class="form" name="offert" method="POST" action="/tack" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="offert" />
+      <p class="visually-hidden"><label>Lämna tomt: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+      <div class="field"><label for="namn">Namn</label><input id="namn" name="namn" type="text" autocomplete="name" required /></div>
+      <div class="field"><label for="kontakt">Telefon eller e-post</label><input id="kontakt" name="kontakt" type="text" required /></div>
+      <div class="field">
+        <label for="tjanst">Tjänst</label>
+        <select id="tjanst" name="tjanst" required>
+          <option value="">Välj tjänst</option>
+          {services.map((s) => <option value={s.name}>{s.name}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="ort">Ort</label>
+        <select id="ort" name="ort" required>
+          <option value="">Välj ort</option>
+          {site.areas.map((a) => <option value={a}>{a}</option>)}
+        </select>
+      </div>
+      <div class="field field--wide"><label for="meddelande">Meddelande</label><textarea id="meddelande" name="meddelande" rows="4" placeholder="Till exempel storlek på bostaden och önskat datum"></textarea></div>
+      <button class="btn field--wide" type="submit">Skicka förfrågan</button>
+      <p class="form__note field--wide">Vi använder dina uppgifter bara för att svara på din förfrågan. <a href="/integritetspolicy">Läs om hur vi hanterar personuppgifter</a>.</p>
+    </form>
+  </div>
+</section>
+<script is:inline>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    ['ort', 'tjanst'].forEach(function (k) {
+      var v = q.get(k), el = document.getElementById(k);
+      if (v && el) el.value = v;
+    });
+  })();
+</script>
+<style is:global>
+  .offer { margin-top: 0; background: var(--tint); border-block: var(--line); padding-block: var(--space-6); }
+  .offer__in { display: grid; gap: var(--space-5); }
+  .offer__text { display: grid; gap: var(--space-3); align-content: start; }
+  .form { display: grid; gap: var(--space-3); background: var(--paper); border: var(--line); padding: var(--space-4); }
+  .field { display: grid; gap: 0.35rem; }
+  .field label { font-weight: 700; font-size: var(--step--1); }
+  .field input, .field select, .field textarea {
+    font: inherit; color: var(--ink); background: var(--paper);
+    border: var(--line); border-radius: var(--radius); min-height: var(--tap); padding: 0.55rem var(--space-3); width: 100%;
+  }
+  .field textarea { min-height: 7rem; resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--placeholder); }
+  .form__note { font-size: var(--step--1); color: var(--ink-soft); }
+  @media (min-width: 56rem) {
+    .offer__in { grid-template-columns: 1fr 1.6fr; gap: var(--space-6); }
+    .form { grid-template-columns: 1fr 1fr; }
+    .field--wide { grid-column: 1 / -1; }
+  }
+</style>
