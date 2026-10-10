@@ -1,6 +1,8 @@
 # Handoff: E&I Städ, status 2026-10-10 (slut på session 1)
 
-Läs först: CLAUDE.md, PRODUCT.md, SITEMAP.md (godkänd), DESIGN.md, `.impeccable/surfaces/src-pages-index-astro.md` (direction contract).
+**Börja här nästa session:** gå till [FRAGOR-TILL-AGAREN.md](FRAGOR-TILL-AGAREN.md). Läs vilka frågor ägaren har svarat på, lägg in svaren i sidorna (texter, RUT, fastighetsservice, checklistor, domän), och kryssa av det som är gjort.
+
+Läs sedan: CLAUDE.md, PRODUCT.md, SITEMAP.md (godkänd), DESIGN.md, `.impeccable/surfaces/src-pages-index-astro.md` (direction contract).
 
 ## Gjort
 - Astro (static) + Netlify Forms. Dev: `npx astro dev --port 4321`. Build: `npx astro build`.
