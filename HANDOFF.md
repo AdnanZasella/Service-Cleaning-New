@@ -1,4 +1,4 @@
-# Handoff: E&I Städ, status 2026-10-10
+# Handoff: E&I Städ, status 2026-10-10 (slut på session 1)
 
 Läs först: CLAUDE.md, PRODUCT.md, SITEMAP.md (godkänd), DESIGN.md, `.impeccable/surfaces/src-pages-index-astro.md` (direction contract).
 
@@ -33,3 +33,13 @@ Priser/från-priser, RUT-hantering och fakturering, omfattning fastighetsservice
 - og:image genereras från lägenhetsbilden (1200x630). Domänen är fortfarande placeholder.
 - Mobilmenyn stängs med Esc. Sticky bar göms när formuläret syns.
 - Nästa: Netlify-koppling, riktig domän, fakta från ägaren, egna foton, Lighthouse + Rich Results Test.
+
+## Status vid sessionsslut
+- **Live:** https://eistad.netlify.app (Netlify, deploy från GitHub , branch main). Lighthouse mobil 100/100/100/100 (rent test).
+- **Formulär:** Netlify Forms fungerar och är testat. E-postnotis går till Adnan; **byt till ägarens mejl** under Forms → Form notifications när ägaren godkänt.
+- **Schema:** bytt från CleaningService (finns inte i schema.org) till LocalBusiness med ort som adress. Kör om Rich Results Test mot startsidan och flyttstäd.
+- **Domän:** väntar. Förslag eistad.se. När den är bestämd: byt  i src/config/site.ts och public/robots.txt, lägg till domänen i Netlify, skicka in sitemap i Search Console.
+- **Google Business Profile:** önskat men inte skapat. Lägg in länk + sameAs + /recension när den finns.
+- **Ägarens frågor:** FRAGOR-TILL-AGAREN.md (26 punkter). Org.nr, RUT-hantering, fastighetsservice, foton, logo, recensioner m.m.
+- **Netlify-märkning:** Netlify lägger själv en HTML-kommentar och sitt namn i formulärmejlen. Går inte att ta bort i kod. Ingen synlig badge på sidan.
+- **Första åtgärd nästa session:** läs svaren i FRAGOR-TILL-AGAREN.md, uppdatera texter (RUT, fastighetsservice, checklistor), ta bort noindex när innehåll finns, lägg in domän.
