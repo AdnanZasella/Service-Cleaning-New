@@ -5,11 +5,12 @@ import { site, services } from '../config/site';
 
 const schema = [{
   '@context': 'https://schema.org',
-  '@type': 'CleaningService',
+  '@type': 'LocalBusiness',
   name: site.name,
   url: site.url,
   telephone: site.phones.map((p) => p.tel),
   email: site.email,
+  address: site.schemaAddress,
   openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: site.openingHours.days, opens: site.openingHours.opens, closes: site.openingHours.closes }],
   areaServed: site.areas.map((a) => ({ '@type': 'City', name: a })),
   //

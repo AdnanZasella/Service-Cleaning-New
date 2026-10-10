@@ -11,6 +11,8 @@ export const site = {
   ],
   email: 'emsabiscevic@gmail.com', // [TODO: domänmail]
   mainOrt: 'Trollhättan',
+  // Serviceföretag utan publik adress: bara ort och land i schema.
+  schemaAddress: { '@type': 'PostalAddress', addressLocality: 'Trollhättan', addressRegion: 'Västra Götalands län', addressCountry: 'SE' },
   areas: ['Trollhättan', 'Grästorp', 'Lysekil', 'Smögen'],
   // [TODO: Google Business Profile-länk] sameAs läggs till i schema när den finns
   reviewUrl: '/recension',

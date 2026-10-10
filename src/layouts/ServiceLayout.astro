@@ -35,7 +35,7 @@ const schema = [
     name: `${p.name} i ${site.mainOrt}`,
     serviceType: p.serviceType,
     url,
-    provider: { '@type': 'CleaningService', name: site.name, telephone: site.phones.map((x) => x.tel), email: site.email, url: site.url },
+    provider: { '@type': 'LocalBusiness', name: site.name, address: site.schemaAddress, telephone: site.phones.map((x) => x.tel), email: site.email, url: site.url },
     areaServed: site.areas.map((a) => ({ '@type': 'City', name: a })),
   },
   {
