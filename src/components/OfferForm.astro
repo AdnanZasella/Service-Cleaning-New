@@ -11,8 +11,8 @@ const p1 = site.phones[0];
     <form class="form" name="offert" method="POST" action="/tack" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="offert" />
       <p class="visually-hidden"><label>Lämna tomt: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-      <div class="field"><label for="namn">Namn</label><input id="namn" name="namn" type="text" autocomplete="name" required /></div>
-      <div class="field"><label for="kontakt">Telefon eller e-post</label><input id="kontakt" name="kontakt" type="text" required /></div>
+      <div class="field"><label for="namn">Namn</label><input id="namn" name="namn" type="text" autocomplete="name" required pattern="\S.*" title="Skriv ditt namn" /></div>
+      <div class="field"><label for="kontakt">Telefon eller e-post</label><input id="kontakt" name="kontakt" type="text" autocomplete="email tel" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+|[+0-9][0-9 \-]{6,}" title="Skriv ett telefonnummer eller en e-postadress" /></div>
       <div class="field">
         <label for="tjanst">Tjänst</label>
         <select id="tjanst" name="tjanst" required>
