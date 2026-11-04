@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { services } from '../config/site';
+import { services, site } from '../config/site';
 const rutServices = services.filter((s) => s.rut);
 ---
 <PageLayout
@@ -20,6 +20,7 @@ const rutServices = services.filter((s) => s.rut);
     <ul class="plain">
       {rutServices.map((s) => <li><a href={`/${s.slug}`}>{s.name} i Trollhättan</a></li>)}
     </ul>
+    <p>Timpriset är {site.hourlyPrice}. Med RUT-avdrag betalar du {site.hourlyPriceRut} per timme, och vi begär avdraget från Skatteverket åt dig.</p>
     <p>Kontorsstäd för företag omfattas inte av RUT-avdrag.</p>
   </section>
   <section aria-labelledby="h-hur">

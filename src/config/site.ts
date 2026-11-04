@@ -18,6 +18,9 @@ export const site = {
   reviewUrl: '/recension',
   hoursText: 'Måndag–fredag 07–16. Akuta uppdrag även helger.',
   responseTime: 'inom 48 timmar',
+  // Timpris för alla tjänster, bekräftat av ägaren 4 november 2026. Kunden betalar 50 % med RUT.
+  hourlyPrice: '570 kr',
+  hourlyPriceRut: '285 kr',
   openingHours: { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '16:00' },
 } as const;
 

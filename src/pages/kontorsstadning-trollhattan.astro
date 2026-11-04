@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../config/site';
 ---
 <ServiceLayout
   slug="kontorsstadning-trollhattan"
@@ -32,7 +33,7 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
     { t: 'Vi städar enligt överenskommelse', d: 'Vi städar på tider som passar er verksamhet.' },
   ]}
   faqs={[
-    { q: 'Vad kostar kontorsstädning?', a: 'Priset beror på lokalernas storlek, hur smutsiga de är och hur ofta ni vill ha städning. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad kostar kontorsstädning?', a: `Timpriset är ${site.hourlyPrice}. Hur många timmar som går åt beror på lokalernas storlek, hur smutsiga de är och hur ofta ni vill ha städning. Ring eller skicka en förfrågan så får du en offert.` },
     { q: 'Kan vi få RUT-avdrag?', a: 'RUT-avdrag gäller privatpersoner och därför inte kontorsstädning för företag.' },
     { q: 'Kan ni städa utanför kontorstid?', a: 'Vi anpassar tiderna efter er verksamhet.' },
     { q: 'Vilka orter städar ni i?', a: 'Vi städar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },

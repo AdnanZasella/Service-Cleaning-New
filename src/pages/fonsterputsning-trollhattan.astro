@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../config/site';
 import bg from '../assets/fonsterputsning-skrapa-fonster.jpg';
 ---
 <ServiceLayout
@@ -37,7 +38,7 @@ import bg from '../assets/fonsterputsning-skrapa-fonster.jpg';
     text: 'Som privatperson kan du ha rätt till RUT-avdrag på fönsterputsning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
   }}
   faqs={[
-    { q: 'Vad kostar fönsterputsning?', a: 'Priset beror på antal fönster, hur de sitter och hur smutsiga de är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad kostar fönsterputsning?', a: `Timpriset är ${site.hourlyPrice}. Med RUT-avdrag betalar du ${site.hourlyPriceRut} per timme. Hur många timmar som går åt beror på antal fönster, hur de sitter och hur smutsiga de är. Ring eller skicka en förfrågan så får du en offert.` },
     { q: 'Putsar ni både in- och utvändigt?', a: 'Ja, glasytorna rengörs både in- och utvändigt enligt listan ovan.' },
     { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på fönsterputsning. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
     { q: 'Kommer ni till Lysekil och Smögen?', a: 'Ja, alla våra tjänster finns även i Lysekil och på Smögen. Priset kan påverkas av avståndet, så ring eller skicka en förfrågan för en offert.' },

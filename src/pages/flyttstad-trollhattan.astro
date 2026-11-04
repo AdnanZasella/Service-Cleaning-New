@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../config/site';
 import bg from '../assets/tom-lagenhet-flyttstad-trollhattan.jpg';
 ---
 <ServiceLayout
@@ -38,7 +39,7 @@ import bg from '../assets/tom-lagenhet-flyttstad-trollhattan.jpg';
     text: 'Som privatperson kan du ha rätt till RUT-avdrag på flyttstädning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
   }}
   faqs={[
-    { q: 'Vad kostar flyttstäd?', a: 'Priset beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad kostar flyttstäd?', a: `Timpriset är ${site.hourlyPrice}. Med RUT-avdrag betalar du ${site.hourlyPriceRut} per timme. Hur många timmar som går åt beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.` },
     { q: 'Vad ingår i flyttstädningen?', a: 'Köket, badrummet och alla rum städas enligt listan ovan. Behöver du något mer säger du till när du ber om offert.' },
     { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på flyttstäd. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
     { q: 'Vilka orter flyttstädar ni i?', a: 'Vi flyttstädar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },

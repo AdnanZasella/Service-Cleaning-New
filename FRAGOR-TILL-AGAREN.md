@@ -8,17 +8,17 @@ Senast uppdaterad: 10 oktober 2026
 
 | # | Fråga | Varför | Svar |
 |---|---|---|---|
-| 1 | **Organisationsnummer** | Krävs i integritetspolicyn och på fakturor | |
+| 1 | **Organisationsnummer** | Krävs i integritetspolicyn och på fakturor | Osäkert ännu (4 november 2026) |
 | 2 | **Domännamn** (t.ex. ei-stad.se). Vilket vill ni ha, och finns det redan? | Styr webbadress, Google och e-post | |
 | 3 | **E-postadress på domänen** (t.ex. info@...). Ska formulärsvar gå dit eller till emsabiscevic@gmail.com? | Ser mer proffsigt ut, och formulärsvar måste skickas någonstans | |
-| 4 | **F-skatt**: har ni F-skattsedel? | Kunder frågar ofta. Vi skriver bara det som stämmer | |
+| 4 | **F-skatt**: har ni F-skattsedel? | Kunder frågar ofta. Vi skriver bara det som stämmer | Ja, F-skatt finns och de har eget företag |
 | 5 | **Försäkring**: har ni ansvarsförsäkring? Vilket bolag? | Skapar förtroende. Skrivs bara om det stämmer | |
 
 ## B. RUT-avdrag
 
 | # | Fråga | Svar |
 |---|---|---|
-| 6 | Hanterar ni RUT-avdraget åt kunden, så att hen bara betalar sin del på fakturan? Eller ska kunden själv ansöka? | |
+| 6 | Hanterar ni RUT-avdraget åt kunden, så att hen bara betalar sin del på fakturan? Eller ska kunden själv ansöka? | Ja, företaget hanterar det: kunden betalar sin del, Skatteverket betalar resten till företaget |
 | 7 | Är ni godkända av Skatteverket för RUT (har F-skatt och kan begära utbetalning)? | |
 | 8 | Gäller RUT för alla tjänster till privatpersoner (flyttstäd, hemstäd, storstäd, fönsterputs)? | |
 
@@ -30,7 +30,7 @@ Sidan säger idag bara att RUT-avdraget är 50 % av arbetskostnaden enligt dagen
 |---|---|---|
 | 9 | **Checklistorna** (vad som ingår i flyttstäd, hemstäd, storstäd, fönsterputs, kontorsstäd). Stämmer de? Vad ska läggas till eller tas bort? | |
 | 10 | **Fastighetsservice**: vad ingår? Lista konkreta uppgifter (t.ex. trappstädning, snöskottning, utemiljö...). Sidan är dold tills den här är besvarad. | |
-| 11 | **Från-priser**: vill ni visa något "från"-pris per tjänst, eller bara "be om offert"? | |
+| 11 | **Från-priser**: vill ni visa något "från"-pris per tjänst, eller bara "be om offert"? | Alla tjänster 570 kr/tim. Med RUT betalar kunden 50 %, alltså 285 kr/tim. Bekräftat 4 november 2026 |
 | 12 | **Minimidebitering/avstånd**: tar ni särskild avgift för Grästorp, Lysekil och Smögen? | |
 | 13 | **Hyresvärdar och mäklare**: erbjuder ni något särskilt vid flyttstäd (t.ex. kontroll tillsammans med hyresvärd, städning om kunden inte blir godkänd)? Skrivs bara om det stämmer | |
 | 14 | **Kontorsstäd**: vilka intervall erbjuds (dagligen, veckovis, enstaka)? Kan ni städa kvällstid? | |
@@ -51,7 +51,7 @@ Sidan säger idag bara att RUT-avdraget är 50 % av arbetskostnaden enligt dagen
 
 | # | Fråga | Svar |
 |---|---|---|
-| 22 | **Google Business Profile** (företagskortet på Google/Maps): ni vill ha det men har inte skapat det än. Vem skapar det, och när? Skicka länken till profilen och recensionslänken när den finns. | |
+| 22 | **Google Business Profile** (företagskortet på Google/Maps): ni vill ha det men har inte skapat det än. Vem skapar det, och när? Företagsnamnet är också osäkert ännu och måste vara detsamma på sidan och i profilen. Skicka länken till profilen och recensionslänken när den finns. | |
 
 Det är den viktigaste faktorn för att synas i kartresultaten ("städfirma Trollhättan"). Det är gratis och tar ca 15 minuter plus verifiering. Namn, telefon och serviceområden ska vara exakt lika på sidan och i profilen. När profilen finns lägger vi in länken på hemsidan och öppnar recensionssidan.
 
@@ -59,7 +59,7 @@ Det är den viktigaste faktorn för att synas i kartresultaten ("städfirma Trol
 
 | # | Fråga | Svar |
 |---|---|---|
-| 23 | **Telefonnummer**: vilket ska stå först, 070-013 21 39 eller 070-446 67 54? Vem svarar på vilket? | |
+| 23 | **Telefonnummer**: vilket ska stå först, 070-013 21 39 eller 070-446 67 54? Vem svarar på vilket? | Båda bekräftade: 070-013 21 39 och 070-446 67 54. Ordning och vem som svarar är fortfarande öppet |
 | 24 | **Offertförfrågningar**: vem hanterar dem och vem svarar inom 48 timmar? | |
 | 25 | **Facebook, Instagram** eller andra konton ni vill länka till? | |
 | 26 | **GitHub och Netlify**: vem äger kontona? Ska ni ha ett eget Netlify-konto, eller hålla det hos Adnan? | |

@@ -49,7 +49,11 @@ const schema = [{
 
   <section class="svc wrap" id="tjanster" aria-labelledby="h-svc">
     <h2 id="h-svc">Våra tjänster i Trollhättan</h2>
-    <p class="svc__intro">Välj tjänst för att se vad som ingår. RUT-avdrag kan gälla för privatpersoner.</p>
+    <p class="svc__intro">Välj tjänst för att se vad som ingår. Samma timpris gäller för alla tjänster.</p>
+    <div class="price-band">
+      <p class="price-band__item"><span class="price-band__label">Timpris, alla tjänster</span><span class="price-band__num">{site.hourlyPrice}<small> per timme</small></span></p>
+      <p class="price-band__item price-band__item--rut"><span class="price-band__label">Du betalar med RUT-avdrag</span><span class="price-band__num">{site.hourlyPriceRut}<small> per timme</small></span></p>
+    </div>
     <div class="svc__table" role="table" aria-label="Tjänster">
       <div class="svc__row svc__row--head" role="row">
         <span role="columnheader">Tjänst</span>
@@ -114,6 +118,13 @@ const schema = [{
   /* Tjänster, fasta kolumner */
   .svc { padding-top: var(--space-7); }
   .svc__intro { margin-top: var(--space-3); }
+  .price-band { display: grid; margin-top: var(--space-4); background: var(--ink); color: var(--paper); }
+  .price-band__item { display: grid; gap: 0.25rem; padding: var(--space-3) var(--space-4); }
+  .price-band__item--rut { background: var(--mark); color: var(--mark-ink); }
+  .price-band__label { font-weight: 600; }
+  .price-band__num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 2rem + 3vw, 4rem); line-height: 1; }
+  .price-band__num small { font-size: var(--step-0); font-weight: 600; }
+  @media (min-width: 40rem) { .price-band { grid-template-columns: 1fr 1fr; } }
   .svc__table { margin-top: var(--space-4); border-top: var(--line); }
   .svc__row { display: grid; grid-template-columns: 1fr auto; column-gap: var(--space-3); row-gap: 0.25rem; padding-block: var(--space-3); border-bottom: var(--hair); align-items: center; }
   .svc__name { grid-column: 1; }

@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../config/site';
 import bg from '../assets/stadning-golv-skum-trollhattan.jpg';
 ---
 <ServiceLayout
@@ -38,7 +39,7 @@ import bg from '../assets/stadning-golv-skum-trollhattan.jpg';
     text: 'Som privatperson kan du ha rätt till RUT-avdrag på storstädning. Avdraget är 50 % av arbetskostnaden enligt dagens regler.',
   }}
   faqs={[
-    { q: 'Vad kostar storstäd?', a: 'Priset beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.' },
+    { q: 'Vad kostar storstäd?', a: `Timpriset är ${site.hourlyPrice}. Med RUT-avdrag betalar du ${site.hourlyPriceRut} per timme. Hur många timmar som går åt beror på bostadens storlek och hur smutsig den är. Ring eller skicka en förfrågan så får du en offert.` },
     { q: 'Vad är skillnaden mot hemstäd?', a: 'Storstäd är en grundlig städning av hela bostaden, inklusive sådant som inte tas varje gång. Hemstäd är den löpande städningen.' },
     { q: 'Kan jag få RUT-avdrag?', a: 'Som privatperson kan du ha rätt till RUT-avdrag på storstäd. Avdraget är 50 % av arbetskostnaden enligt dagens regler, som Skatteverket bestämmer. Vi berättar hur det fungerar när du ber om offert.' },
     { q: 'Vilka orter städar ni i?', a: 'Vi städar i Trollhättan och kommer även till Grästorp, Lysekil och Smögen. Alla våra tjänster finns på alla orter, men priset kan påverkas av avståndet.' },
